@@ -17,7 +17,7 @@ public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// Caso o usuário tente acessar este end point pelo método GET, recebe a página de formulário JSP.
+		// Caso o usuï¿½rio tente acessar este end point pelo mï¿½todo GET, recebe a pï¿½gina de formulï¿½rio JSP.
 		response.sendRedirect("form-register.jsp");
 	}
 
@@ -41,7 +41,7 @@ public class RegisterServlet extends HttpServlet {
 			response.sendRedirect("index.jsp");
 			
 		} catch (Exception e) {
-			// Escreve as mensagens de Exception em uma página de resposta.
+			// Escreve as mensagens de Exception em uma pï¿½gina de resposta.
 			StringWriter sw = new StringWriter();
 			PrintWriter pw = new PrintWriter(sw);
 			e.printStackTrace(pw);
