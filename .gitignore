@@ -112,28 +112,19 @@ buildNumber.properties
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
 
-# End of https://www.toptal.com/developers/gitignore/api/eclipse,maven,java
-
-## IntelliJ IDEA##
+# IntelliJ IDEA
 .idea/
-
 *.iml
-*.iws
-
-.idea/**/workspace.xml
-.idea/**/tasks.xml
-.idea/dictionaries
-.idea/**/vcs.xml
-.idea/**/shelf/
-
-.idea/**/runConfigurations/
-.idea/**/gradle.xml
-
-.idea/modules.xml
-.idea/*.iml
-.idea/modules/
-
-.idea/**/logs
-.idea/**/log
-
 out/
+.idea/libraries/
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/vcs.xml
+.idea/gradle.xml
+.idea/jarRepositories.xml
+.idea/compiler.xml
+
+# Ignorar o README individual
+README.md
+
+# End of https://www.toptal.com/developers/gitignore/api/eclipse,maven,java
