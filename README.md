@@ -1,5 +1,5 @@
-# Escreva aqui o tema da equipe, por exemplo (App Universo, App Animais, App Comidas)
+# Cafeteria Beulch: Cafés e bolos
 
 ## Desenolvedores
 
-- Seu nome completo aqui;
+- Pedro Ricardo Gomes de Souza;
