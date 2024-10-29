@@ -18,49 +18,34 @@ public class InstallDatabaseServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter page = response.getWriter();
-		
+		StringBuilder msg = new StringBuilder("<h1>INSTALL DATABASE</h1>");
+
 		try {
+			// Instancia o serviço de instalação
 			InstallService service = new InstallService();
-			String msg = "<h1>INSTALL DATABASE</h1>";
-			
+
+			// Testa conexão com o banco de dados
 			service.testConnection();
-			msg += "<h2>Connection DB sucessful!</h2>\n";
-			
+			msg.append("<h2>Connection to DB successful!</h2>");
+
+			// Deleta a tabela 'user' (caso exista) e a recria
 			service.deleteUserTable();
-			msg += "<h2>Delete table user sucessful!</h2>\n";
-			
+			msg.append("<h2>Delete table 'user' successful!</h2>");
+
 			service.createUserTable();
-			msg += "<h2>Create table user sucessful!</h2>\n";
-			
-			page.println("<html lang='pt-br'><head><title>Teste</title></head><body>");
-			page.println(msg);
-			/*/
-			page.println("<code>");
-			for (Map.Entry<String,String> pair : env.entrySet()) {
-			    page.println(pair.getKey());
-			    page.println(pair.getValue());
-			}
-			//*/
-			page.println("</code>");
-			page.println("</body></html>");
-			page.close();
-			
+			msg.append("<h2>Create table 'user' successful!</h2>");
+
 		} catch (Exception e) {
-			// Escreve as mensagens de Exception em uma página de resposta.
-			// Não apagar este bloco.
+			// Em caso de erro, exibe a stack trace
 			StringWriter sw = new StringWriter();
-			PrintWriter pw = new PrintWriter(sw);
-			e.printStackTrace(pw);
-			
-			page.println("<html lang='pt-br'><head><title>Error</title></head><body>");
-			page.println("<h1>Error</h1>");
-			page.println("<code>");
-			page.println(sw.toString());
-			page.println("</code>");
+			e.printStackTrace(new PrintWriter(sw));
+			msg.append("<h1>Error Occurred</h1><code>").append(sw.toString()).append("</code>");
+		} finally {
+			// Exibe a resposta no navegador
+			page.println("<html lang='pt-br'><head><title>Database Installation</title></head><body>");
+			page.println(msg);
 			page.println("</body></html>");
 			page.close();
-		} finally {
-			
 		}
 	}
 }
