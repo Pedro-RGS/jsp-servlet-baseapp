@@ -1,6 +1,6 @@
 # Cafeteria Beulch: Cafés e bolos
 
-## Desenolvedores
+## Desenvolvedores
 
 - Murilo Gonçalves de Lucena
 - Paula Beatriz Lucas Oliveira

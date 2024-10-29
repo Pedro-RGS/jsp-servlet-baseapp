@@ -113,3 +113,27 @@ buildNumber.properties
 .classpath
 
 # End of https://www.toptal.com/developers/gitignore/api/eclipse,maven,java
+
+## IntelliJ IDEA##
+.idea/
+
+*.iml
+*.iws
+
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/dictionaries
+.idea/**/vcs.xml
+.idea/**/shelf/
+
+.idea/**/runConfigurations/
+.idea/**/gradle.xml
+
+.idea/modules.xml
+.idea/*.iml
+.idea/modules/
+
+.idea/**/logs
+.idea/**/log
+
+out/
