@@ -14,9 +14,6 @@ local.properties
 .loadpath
 .recommenders
 
-## Intellij IDE ##
-.idea
-
 # External tool builders
 .externalToolBuilders/
 
@@ -115,17 +112,28 @@ buildNumber.properties
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
 
-# IntelliJ IDEA
-.idea/
-*.iml
-out/
-.idea/libraries/
-.idea/workspace.xml
-.idea/tasks.xml
-.idea/vcs.xml
-.idea/gradle.xml
-.idea/jarRepositories.xml
-.idea/compiler.xml
-
-
 # End of https://www.toptal.com/developers/gitignore/api/eclipse,maven,java
+
+## IntelliJ IDEA##
+.idea/
+
+*.iml
+*.iws
+
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/dictionaries
+.idea/**/vcs.xml
+.idea/**/shelf/
+
+.idea/**/runConfigurations/
+.idea/**/gradle.xml
+
+.idea/modules.xml
+.idea/*.iml
+.idea/modules/
+
+.idea/**/logs
+.idea/**/log
+
+out/
