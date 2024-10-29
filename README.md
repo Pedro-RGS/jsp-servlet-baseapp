@@ -1,7 +1,12 @@
 # Cafeteria Beulch: Cafés e bolos
 
-## Desenolvedores
+## Desenolvedor
 
 - Murilo Gonçalves de Lucena
-- Paula Beatriz Lucas Oliveira
-- Pedro Ricardo Gomes de Souza
+
+
+## Demandas Realizadas
+- Escolha do líder da equipe (Escolhemos Pedro)
+- Atualizar o ".gitignore" (A pasta ".idea" e derivados são ignorados)
+- Montar a Estrutura de Branches (Cada desenvolvedor criou a sua e criei a "development")
+- Fazer o Script de Teste do GitHub Actions (Agora os testes são automatizados)
