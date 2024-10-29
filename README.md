@@ -3,5 +3,5 @@
 ## Desenolvedores
 
 - Murilo Gonçalves de Lucena
-- 
-- Pedro Ricardo Gomes de Souza;
+- Paula Beatriz Lucas Oliveira
+- Pedro Ricardo Gomes de Souza
