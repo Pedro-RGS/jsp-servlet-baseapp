@@ -2,6 +2,8 @@
 
 ## Desenvolvedor
 
+## Semana 1
+
 - Murilo Gonçalves de Lucena
    Demandas:
     - Escolha do líder da equipe (Escolhemos Pedro)
@@ -17,6 +19,14 @@
     - Escolha do líder da equipe (Pedro)
     - Atualizar o ".gitignore"
     - Montar a Estrutura de Branches
+
+## Semana 2
+- Murilo Gonçalves de Lucena
+  Demandas:
+  - O usuário consegue instalar novas tabelas no BD pelo endpoint 'install'
+  - Preencher About
+  - Preencher Readme
+  
 
 ### Link da página do cliente
 https://jsp-servlet-baseapp-bql3.onrender.com

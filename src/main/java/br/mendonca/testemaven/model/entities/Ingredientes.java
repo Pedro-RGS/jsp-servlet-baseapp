@@ -10,6 +10,10 @@ public class Ingredientes {
     private int preco;
     private boolean disponivel;
 
+    public String getId() {
+        return id;
+    }
+
     public boolean isDisponivel() {
         return disponivel;
     }
