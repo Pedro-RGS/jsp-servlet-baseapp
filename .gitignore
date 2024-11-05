@@ -124,7 +124,4 @@ out/
 .idea/jarRepositories.xml
 .idea/compiler.xml
 
-# Ignorar o README individual
-README.md
-
 # End of https://www.toptal.com/developers/gitignore/api/eclipse,maven,java
