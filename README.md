@@ -24,6 +24,9 @@
   Demandas:
     - Criar o link para a aplicação do cliente
     - Instalar o banco na aplicação do cliente
+    - O usuário consegue instalar novas tabelas
+    - 
+    - O usuário consegue listar todas as entidades
 
 
 

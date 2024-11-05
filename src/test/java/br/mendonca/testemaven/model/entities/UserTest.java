@@ -22,7 +22,7 @@ public class UserTest {
 		String UUID = "1";
 		user.setUuid(UUID);
 		
-		assertEquals(UUID, user.getUuid(), "O UUID configurado no objeto User não é o mesmo retornado.");
+		assertEquals(UUID, user.getUuid(), "O UUID configurado no objeto User nï¿½o ï¿½ o mesmo retornado.");
 		assertNotEquals("11", user.getUuid(), "O UUID configurado no objeto User deveria apresentar erro.");
 	}
 
@@ -32,7 +32,7 @@ public class UserTest {
 		String name = "Fulano de Tal";
 		user.setName(name);
 		
-		assertEquals(name, user.getName(), "O Name configurado no objeto User não é o mesmo retornado.");
+		assertEquals(name, user.getName(), "O Name configurado no objeto User nao ï¿½ o mesmo retornado.");
 		assertNotEquals("Beltrano", user.getName(), "O Name configurado no objeto deveria apresentar erro.");
 	}
 
@@ -42,7 +42,7 @@ public class UserTest {
 		String email = "fulano@email.com";
 		user.setEmail(email);
 		
-		assertEquals(email, user.getEmail(), "O E-mail configurado no objeto User não é o mesmo retornado.");
+		assertEquals(email, user.getEmail(), "O E-mail configurado no objeto User nï¿½o ï¿½ o mesmo retornado.");
 		assertNotEquals("email@email", user.getEmail(), "O E-mail configurado no objeto deveria apresentar erro.");
 	}
 
@@ -52,7 +52,7 @@ public class UserTest {
 		String pass = "xyz";
 		user.setPassword(pass);
 		
-		assertEquals(pass, user.getPassword(), "O Password configurado no objeto User não é o mesmo retornado.");
+		assertEquals(pass, user.getPassword(), "O Password configurado no objeto User nï¿½o ï¿½ o mesmo retornado.");
 		assertNotEquals("zxy", user.getPassword(), "O Password configurado no objeto deveria apresentar erro.");
 	}
 }
