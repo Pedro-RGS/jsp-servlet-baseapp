@@ -51,14 +51,14 @@ public class IngredientesDAO {
         return lista;
     }
 
-    public Ingredientes procurarPorNome(String nome) throws ClassNotFoundException, SQLException {
+    public Ingredientes procurarPorId(String id) throws ClassNotFoundException, SQLException {
         Ingredientes ingredientes = null;
-        String sql = "SELECT * FROM ingredientes WHERE LOWER(nome) = LOWER(?)";
+        String sql = "SELECT * FROM ingredientes WHERE id = ?";
 
         try (Connection conn = ConnectionPostgres.getConexao();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
-            ps.setString(1, nome);
+            ps.setString(1, id);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
                     ingredientes = new Ingredientes();
@@ -75,14 +75,14 @@ public class IngredientesDAO {
         return ingredientes;
     }
 
-    public List<Ingredientes> procurarIngredientesPorNomeParcial(String nome) throws ClassNotFoundException, SQLException {
+    public List<Ingredientes> procurarIngredientesPorId(String id) throws ClassNotFoundException, SQLException {
         List<Ingredientes> lista = new ArrayList<>();
-        String sql = "SELECT * FROM ingredientes WHERE LOWER(nome) LIKE LOWER(?)";
+        String sql = "SELECT * FROM ingredientes WHERE id LIKE ?";
 
         try (Connection conn = ConnectionPostgres.getConexao();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
-            ps.setString(1, nome + "%");
+            ps.setString(1,id+ "%");
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
                     Ingredientes ingredientes = new Ingredientes();
