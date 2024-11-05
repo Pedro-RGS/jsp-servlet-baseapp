@@ -1,9 +1,9 @@
 package br.mendonca.testemaven.services.dto;
 
 import br.mendonca.testemaven.model.entities.LivroDeReceitas;
-import br.mendonca.testemaven.model.entities.User;
 
-public class LivroDTO {
+public class LivroDeReceitasDTO {
+
     private String titulo;
     private int numeroDePaginas;
     private boolean ehBom;
@@ -32,8 +32,8 @@ public class LivroDTO {
         this.ehBom = ehBom;
     }
 
-    public static LivroDTO livroMapper(LivroDeReceitas livroDeReceitas) {
-        LivroDTO dto = new LivroDTO();
+    public static LivroDeReceitasDTO livroMapper(LivroDeReceitas livroDeReceitas) {
+        LivroDeReceitasDTO dto = new LivroDeReceitasDTO();
         dto.setTitulo(livroDeReceitas.getTitulo());
         dto.setNumeroDePaginas(livroDeReceitas.getNumeroDePaginas());
         dto.setEhBom(livroDeReceitas.isEhBom());
