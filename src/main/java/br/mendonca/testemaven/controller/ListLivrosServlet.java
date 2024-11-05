@@ -29,7 +29,7 @@ public class ListLivrosServlet extends HttpServlet {
 
             // Anexa � requisi��o um objeto ArrayList e despacha a requisi��o para uma JSP.
             request.setAttribute("lista", lista);
-            request.getRequestDispatcher("list-users.jsp").forward(request, response);
+            request.getRequestDispatcher("list-livrosReceita.jsp").forward(request, response);
         } catch (Exception e) {
             // Escreve as mensagens de Exception em uma p�gina de resposta.
             // N�o apagar este bloco.
