@@ -19,8 +19,8 @@ public class ModeloServlet extends HttpServlet {
 		PrintWriter page = response.getWriter();
 		
 		try {
-			// A programação do servlet deve ser colocada neste bloco try.
-			// Apague o conteúdo deste bloco try e escreva seu código.
+			// A programacao do servlet deve ser colocada neste bloco try.
+			// Apague o conteï¿½do deste bloco try e escreva seu cï¿½digo.
 			
 			page.println("<html lang='pt-br'><head><title>Exemplo</title></head><body>");
 			page.println("<h1>Enviar parametro</h1>");
@@ -32,8 +32,8 @@ public class ModeloServlet extends HttpServlet {
 			page.close();
 			
 		} catch (Exception e) {
-			// Escreve as mensagens de Exception em uma página de resposta.
-			// Não apagar este bloco.
+			// Escreve as mensagens de Exception em uma pï¿½gina de resposta.
+			// Nï¿½o apagar este bloco.
 			StringWriter sw = new StringWriter();
 			PrintWriter pw = new PrintWriter(sw);
 			e.printStackTrace(pw);
@@ -54,8 +54,8 @@ public class ModeloServlet extends HttpServlet {
 		PrintWriter page = response.getWriter();
 		
 		try {
-			// A programação do servlet deve ser colocada neste bloco try.
-			// Apague o conteúdo deste bloco try e escreva seu código.
+			// A programaï¿½ï¿½o do servlet deve ser colocada neste bloco try.
+			// Apague o conteï¿½do deste bloco try e escreva seu cï¿½digo.
 			String parametro = request.getParameter("nomeparametro");
 			
 			page.println("Parametro: " + parametro);
@@ -63,8 +63,8 @@ public class ModeloServlet extends HttpServlet {
 			
 			
 		} catch (Exception e) {
-			// Escreve as mensagens de Exception em uma página de resposta.
-			// Não apagar este bloco.
+			// Escreve as mensagens de Exception em uma pï¿½gina de resposta.
+			// Nï¿½o apagar este bloco.
 			StringWriter sw = new StringWriter();
 			PrintWriter pw = new PrintWriter(sw);
 			e.printStackTrace(pw);
