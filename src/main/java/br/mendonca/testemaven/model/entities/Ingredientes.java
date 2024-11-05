@@ -1,7 +1,7 @@
 package br.mendonca.testemaven.model.entities;
 
 public class Ingredientes {
-    private int id;
+    private String id;
     private String nome;
     private String descricao;
     private String categoria;
@@ -9,14 +9,6 @@ public class Ingredientes {
     private int gramas;
     private int preco;
     private boolean disponivel;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public boolean isDisponivel() {
         return disponivel;
