@@ -21,7 +21,7 @@ public class LivroService {
         dao.register(livro);
     }
 
-    public List<LivroDeReceitasDTO> listAllUsers() throws ClassNotFoundException, SQLException {
+    public List<LivroDeReceitasDTO> listAllLivros() throws ClassNotFoundException, SQLException {
 
         ArrayList<LivroDeReceitasDTO> resp = new ArrayList<>();
 
