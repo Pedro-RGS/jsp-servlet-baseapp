@@ -25,7 +25,7 @@ public class ListUsersServlet extends HttpServlet {
 			UserService service = new UserService();
 			List<UserDTO> lista = service.listAllUsers();
 			
-			// Anexa a requisicao um objeto ArrayList e despacha a requisi��o para uma JSP.
+			// Anexa � requisi��o um objeto ArrayList e despacha a requisi��o para uma JSP.
 			request.setAttribute("lista", lista);
 			request.getRequestDispatcher("list-users.jsp").forward(request, response);
 		} catch (Exception e) {
