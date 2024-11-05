@@ -14,15 +14,15 @@
   <form action="register" method="post">
     <h1 class="h3 mb-3 fw-normal">Cadastrar novo livro:</h1>
     <div class="form-floating">
-      <input type="text" name="name" class="form-control" id="floatingInput" placehholder="Digite o título do livro" />
+      <input type="text" name="title" class="form-control" id="floatingInput" placehholder="Digite o título do livro" />
       <label for="floatingInput">Título</label>
     </div>
     <div class="form-floating">
-      <input type="email" name="email" class="form-control" id="floatingInput" placehholder="Digite o número de páginas do livro" />
+      <input type="email" name="numberOfPages" class="form-control" id="floatingInput" placehholder="Digite o número de páginas do livro" />
       <label for="floatingInput">Número de Páginas</label>
     </div>
     <div class="form-floating">
-      <input type="password" name="password" class="form-control" id="floatingInput" placehholder="Digite se o livro é bom" />
+      <input type="password" name="isGood" class="form-control" id="floatingInput" placehholder="Digite se o livro é bom" />
       <label for="floatingInput">É bom?</label>
     </div>
     <button class="btn btn-primary w-100 py-2 mt-2">Cadastrar</button>

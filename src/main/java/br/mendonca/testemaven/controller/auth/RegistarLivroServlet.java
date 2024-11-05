@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
-@WebServlet("/register/livro")
+@WebServlet("dashboard/register/livro")
 public class RegistarLivroServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -40,7 +40,7 @@ public class RegistarLivroServlet extends HttpServlet {
             LivroDeReceitasDAO dao = new LivroDeReceitasDAO();
             dao.register(livro);
 
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("dashboard.jsp");
 
         } catch (Exception e) {
             // Escreve as mensagens de Exception em uma p�gina de resposta.
