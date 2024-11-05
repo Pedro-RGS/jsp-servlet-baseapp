@@ -58,7 +58,7 @@ public class UserDAO {
 		PreparedStatement ps = conn.prepareStatement("SELECT * FROM users WHERE email = ? AND password = ?");
 		ps.setString(1, email);
 		ps.setString(2, password);
-		System.out.println(ps); // Exibe no console do Docker a query já montada.
+		System.out.println(ps); // Exibe no console do Docker a query jï¿½ montada.
 		
 		ResultSet rs = ps.executeQuery();
 		if (rs.next()) {
@@ -75,7 +75,7 @@ public class UserDAO {
 		return user;
 	}
 
-	// TODO: Não testado
+	// TODO: NÃ£o testado
 	public List<User> search(String name) throws ClassNotFoundException, SQLException {
 		ArrayList<User> lista = new ArrayList<User>();
 		
