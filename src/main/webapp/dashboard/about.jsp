@@ -74,7 +74,7 @@ if (session.getAttribute("user") != null) {
 				</tr>
 				<tr>
 					<td scope="col">Pedro Ricardo Gomes de Souza</td>
-					<td scope="col">Coloque aqui sua entidade de trabalho</td>
+					<td scope="col">Livro de Receitas</td>
 					<td scope="col">Coloque aqui sua regra de negócio</td>
 				</tr>
 			<tbody>
