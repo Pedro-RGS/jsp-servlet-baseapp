@@ -18,5 +18,14 @@
     - Atualizar o ".gitignore"
     - Montar a Estrutura de Branches
 
+### Semana 2
+
+- Pedro Ricardo Gomes de Souza
+  Demandas:
+    - Criar o link para a aplicação do cliente
+    - Instalar o banco na aplicação do cliente
+
+
+
 ### Link da página do cliente
 https://jsp-servlet-baseapp-pl1m.onrender.com

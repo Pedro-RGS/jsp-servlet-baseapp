@@ -75,7 +75,7 @@ public class UserDAO {
 		return user;
 	}
 
-	// TODO: Nao testado
+	// TODO: N�o testado
 	public List<User> search(String name) throws ClassNotFoundException, SQLException {
 		ArrayList<User> lista = new ArrayList<User>();
 		
