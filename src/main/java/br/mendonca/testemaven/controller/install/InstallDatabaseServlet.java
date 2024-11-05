@@ -1,15 +1,15 @@
 package br.mendonca.testemaven.controller.install;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.StringWriter;
-
 import br.mendonca.testemaven.services.InstallService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 
 @WebServlet("/install")
 public class InstallDatabaseServlet extends HttpServlet {
@@ -18,34 +18,49 @@ public class InstallDatabaseServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter page = response.getWriter();
-		StringBuilder msg = new StringBuilder("<h1>INSTALL DATABASE</h1>");
 
 		try {
-			// Instancia o serviço de instalação
 			InstallService service = new InstallService();
+			String msg = "<h1>INSTALL DATABASE</h1>";
 
-			// Testa conexão com o banco de dados
 			service.testConnection();
-			msg.append("<h2>Connection to DB successful!</h2>");
+			msg += "<h2>Connection DB sucessful!</h2>\n";
 
-			// Deleta a tabela 'user' (caso exista) e a recria
 			service.deleteUserTable();
-			msg.append("<h2>Delete table 'user' successful!</h2>");
+			msg += "<h2>Delete table user sucessful!</h2>\n";
 
 			service.createUserTable();
-			msg.append("<h2>Create table 'user' successful!</h2>");
+			msg += "<h2>Create table user sucessful!</h2>\n";
 
-		} catch (Exception e) {
-			// Em caso de erro, exibe a stack trace
-			StringWriter sw = new StringWriter();
-			e.printStackTrace(new PrintWriter(sw));
-			msg.append("<h1>Error Occurred</h1><code>").append(sw.toString()).append("</code>");
-		} finally {
-			// Exibe a resposta no navegador
-			page.println("<html lang='pt-br'><head><title>Database Installation</title></head><body>");
+			page.println("<html lang='pt-br'><head><title>Teste</title></head><body>");
 			page.println(msg);
+			/*/
+			page.println("<code>");
+			for (Map.Entry<String,String> pair : env.entrySet()) {
+			    page.println(pair.getKey());
+			    page.println(pair.getValue());
+			}
+			//*/
+			page.println("</code>");
 			page.println("</body></html>");
 			page.close();
+
+		} catch (Exception e) {
+			// Escreve as mensagens de Exception em uma pÃ¡gina de resposta.
+			// NÃ£o apagar este bloco.
+			StringWriter sw = new StringWriter();
+			PrintWriter pw = new PrintWriter(sw);
+			e.printStackTrace(pw);
+
+			page.println("<html lang='pt-br'><head><title>Error</title></head><body>");
+			page.println("<h1>Error</h1>");
+			page.println("<code>");
+			page.println(sw.toString());
+			page.println("</code>");
+			page.println("</body></html>");
+			page.close();
+		} finally {
+
 		}
 	}
 }
