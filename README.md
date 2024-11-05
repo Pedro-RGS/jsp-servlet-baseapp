@@ -27,7 +27,11 @@
     - O usuário consegue instalar novas tabelas
     - 
     - O usuário consegue listar todas as entidades
-
+  
+- Paula Beatriz Lucas Oliveira
+  Demandas:
+    - O usuário consegue instalar novas tabelas no bd pelo endpoint install
+    -
 
 
 ### Link da página do cliente
