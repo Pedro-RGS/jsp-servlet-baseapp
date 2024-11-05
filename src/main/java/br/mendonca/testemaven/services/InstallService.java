@@ -24,6 +24,10 @@ public class InstallService {
 	public void deleteUserTable() throws ClassNotFoundException, SQLException {
 		statement("DROP TABLE IF EXISTS users");
 	}
+
+	public void deleteLivroTable() throws SQLException, ClassNotFoundException {
+		statement("DROP TABLE IF EXISTS livroDeReceitas");
+	}
 	
 	public void createUserTable() throws ClassNotFoundException, SQLException {
 		statement("CREATE TABLE users ("
@@ -31,5 +35,13 @@ public class InstallService {
 					+ "    name VARCHAR(255) NOT NULL,"
 					+ "    email VARCHAR(255) NOT NULL,"
 					+ "    password VARCHAR(255) NOT NULL)");
+	}
+
+	public void createLivroTable() throws ClassNotFoundException, SQLException {
+		statement("CREATE TABLE livroDeReceitas ("
+				+ "    uuid UUID DEFAULT gen_random_uuid() PRIMARY KEY,"
+				+ "    title VARCHAR(255) NOT NULL,"
+				+ "    numberOfPages INT NOT NULL,"
+				+ "    isGood BOOLEAN NOT NULL)");
 	}
 }

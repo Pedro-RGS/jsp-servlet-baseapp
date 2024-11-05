@@ -1,27 +1,25 @@
 package br.mendonca.testemaven.model.entities;
 
-import java.util.UUID;
-
 public class LivroDeReceitas {
-    private UUID uuid;
-    private String name;
+    private String UUID;
+    private String titulo;
     private int numeroDePaginas;
-    private boolean isGood;
+    private boolean ehBom;
 
-    public UUID getUuid() {
-        return uuid;
+    public String getUUID() {
+        return UUID;
     }
 
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
+    public void setUUID(String UUID) {
+        this.UUID = UUID;
     }
 
-    public String getName() {
-        return name;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
     public int getNumeroDePaginas() {
@@ -32,11 +30,11 @@ public class LivroDeReceitas {
         this.numeroDePaginas = numeroDePaginas;
     }
 
-    public boolean isGood() {
-        return isGood;
+    public boolean isEhBom() {
+        return ehBom;
     }
 
-    public void setGood(boolean good) {
-        isGood = good;
+    public void setEhBom(boolean ehBom) {
+        this.ehBom = ehBom;
     }
 }
