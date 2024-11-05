@@ -32,8 +32,15 @@ public class InstallDatabaseServlet extends HttpServlet {
 			service.createUserTable();
 			msg += "<h2>Create table user sucessful!</h2>\n";
 
+			service.deleteLivroTable();
+			msg += "<h2>Delete table livro sucessful!</h2>\n";
+
+			service.createLivroTable();
+			msg += "<h2>Create table livro sucessful!</h2>\n";
+
 			page.println("<html lang='pt-br'><head><title>Teste</title></head><body>");
 			page.println(msg);
+
 			/*/
 			page.println("<code>");
 			for (Map.Entry<String,String> pair : env.entrySet()) {
