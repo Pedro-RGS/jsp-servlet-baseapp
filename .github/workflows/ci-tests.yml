@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # Define o ambiente (No nosso caso vai ser no ubuntu mais reccente)
+    runs-on: ubuntu-latest  # Aqui Define o ambiente (No nosso caso vai ser no ubuntu mais reccente)
 
     steps:
       - name: Checkout do Código
@@ -21,10 +21,10 @@ jobs:
           distribution: 'temurin'  # OpenJDK build da Temurin
 
       - name: Instalar Dependências
-        run: mvn install -DskipTests  # Instala as dependências sem rodar testes ainda
+        run: mvn install -DskipTests  # Aqui instala as dependências sem rodar testes ainda
 
       - name: Rodar Testes
-        run: mvn test  # Executa os testes do Maven
+        run: mvn test  # Aqui executa os testes do Maven
 
       - name: Verificar Resultados dos Testes
         if: failure()
