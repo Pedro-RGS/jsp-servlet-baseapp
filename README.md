@@ -37,6 +37,12 @@
     - O usuário consegue listar todas as entidades
 
 ### Semana 3
+
+- Murilo Gonçalves de Lucena
+  Demandas:
+  - O usuário instala as novas tabelas do banco com 7 indivíduos pelo endpoint "install"
+
+
 - Pedro Ricardo Gomes de Souza
   Demandas:
   
