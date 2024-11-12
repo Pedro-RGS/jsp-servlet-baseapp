@@ -3,7 +3,7 @@
 <%@ page import="br.mendonca.testemaven.services.dto.ChefDTO" %>
 <%@ page import="br.mendonca.testemaven.model.entities.Chef" %>
 
-<% if (session.getAttribute("chef") != null && request.getAttribute("lista") != null) { %>
+<% if (session.getAttribute("user") != null && request.getAttribute("lista") != null) { %>
 
 <!doctype html>
 <html lang="pt-br" data-bs-theme="dark">

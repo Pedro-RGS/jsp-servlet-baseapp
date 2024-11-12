@@ -26,7 +26,7 @@ public class ChefService {
         ArrayList<ChefDTO> resp = new ArrayList<>();
 
         ChefDAO dao = new ChefDAO();
-        List<Chef> lista = dao.listAllUser();
+        List<Chef> lista = dao.listAllChefs();
 
         for (Chef chef : lista) {
             resp.add(ChefDTO.chefMapper(chef));

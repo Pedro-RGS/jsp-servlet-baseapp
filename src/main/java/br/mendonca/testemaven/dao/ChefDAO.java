@@ -21,7 +21,7 @@ public class ChefDAO {
         ps.close();
     }
 
-    public List<Chef> listAllUser() throws ClassNotFoundException, SQLException {
+    public List<Chef> listAllChefs() throws ClassNotFoundException, SQLException {
         ArrayList<Chef> lista = new ArrayList<Chef>();
 
         Connection conn = ConnectionPostgres.getConexao();

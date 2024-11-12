@@ -26,7 +26,7 @@ public class InstallService {
 	}
 
 	public void deleteChefTable() throws ClassNotFoundException, SQLException {
-		statement("DROP TABLE IF EXISTS chefs");
+		statement("DROP TABLE IF EXISTS chef");
 	}
 
 	public void deleteLivroTable() throws SQLException, ClassNotFoundException {
