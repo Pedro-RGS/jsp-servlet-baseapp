@@ -12,6 +12,18 @@ public class IngredientesDTO {
     private int preco;
     private boolean disponivel;
 
+    // Construtor que aceita todos os parâmetros necessários
+    public IngredientesDTO(String nome, String descricao, String categoria, int quantidade, int gramas, int preco, boolean disponivel) {
+        this.nome = nome;
+        this.descricao = descricao;
+        this.categoria = categoria;
+        this.quantidade = quantidade;
+        this.gramas = gramas;
+        this.preco = preco;
+        this.disponivel = disponivel;
+    }
+
+    // Getters e Setters
     public String getNome() {
         return nome;
     }
@@ -68,16 +80,15 @@ public class IngredientesDTO {
         this.disponivel = disponivel;
     }
 
-    public static IngredientesDTO userMapper(Ingredientes ingredientes){
-        IngredientesDTO ingredientesDTO = new IngredientesDTO();
-        ingredientesDTO.setNome(ingredientes.getNome());
-        ingredientesDTO.setDescricao(ingredientes.getDescricao());
-        ingredientesDTO.setCategoria(ingredientes.getCategoria());
-        ingredientesDTO.setQuantidade(ingredientes.getQuantidade());
-        ingredientesDTO.setGramas(ingredientes.getGramas());
-        ingredientesDTO.setPreco(ingredientes.getPreco());
-        ingredientesDTO.setDisponivel(ingredientes.isDisponivel());
-
-        return ingredientesDTO;
+    public static IngredientesDTO userMapper(Ingredientes ingredientes) {
+        return new IngredientesDTO(
+                ingredientes.getNome(),
+                ingredientes.getDescricao(),
+                ingredientes.getCategoria(),
+                ingredientes.getQuantidade(),
+                ingredientes.getGramas(),
+                ingredientes.getPreco(),
+                ingredientes.isDisponivel()
+        );
     }
 }
