@@ -31,7 +31,16 @@
 - Paula Beatriz Lucas Oliveira
   Demandas:
     - O usuário consegue instalar novas tabelas no bd pelo endpoint install
-    -
+
+### Semana 3
+
+- Paula Beatriz Lucas Oliveira
+  Demandas:
+  - O Usuário consegue inserir no sistema, de forma permanente, uma ou mais entidades, com suas propriedades, através de um item de menu
+  - O Usuário consegue listar todas as entidades cadastradas através do item de menu
+  - O Usuário consegue exibir as propriedades de uma entidade numa lista de entidade
+
+
 
 
 ### Link da página do cliente
