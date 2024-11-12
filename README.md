@@ -24,6 +24,7 @@
 - Murilo Gonçalves de Lucena
   Demandas:
   - O usuário consegue instalar novas tabelas no BD pelo endpoint 'install'
+  - O Usuário consegue inserir no sistema, de forma permanente, uma ou mais entidades, com suas propriedades, através de um item de menu
   
 
 ### Link da página do cliente
