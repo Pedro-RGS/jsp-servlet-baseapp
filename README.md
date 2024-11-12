@@ -1,5 +1,7 @@
 # Cafeteria Beulch: Cafés e bolos
 
+## Semana 1
+
 ## Desenvolvedor
 
 - Murilo Gonçalves de Lucena
@@ -18,7 +20,13 @@
     - Atualizar o ".gitignore"
     - Montar a Estrutura de Branches
 
-### Semana 2
+## Semana 2
+- Murilo Gonçalves de Lucena
+  Demandas:
+  - O usuário consegue instalar novas tabelas no BD pelo endpoint 'install'
+  - O Usuário consegue inserir no sistema, de forma permanente, uma ou mais entidades, com suas propriedades, através de um item de menu
+  - O Usuário consegue listar todas as entidades cadastradas através do item de menu
+  - O Usuário consegue exibir as propriedades de uma entidade numa lista de entidade
 
 - Pedro Ricardo Gomes de Souza
   Demandas:
