@@ -7,6 +7,7 @@ public class LivroDeReceitasDTO {
     private String titulo;
     private int numeroDePaginas;
     private boolean ehBom;
+    private boolean ativo;
 
     public String getTitulo() {
         return titulo;
@@ -32,11 +33,20 @@ public class LivroDeReceitasDTO {
         this.ehBom = ehBom;
     }
 
+    public boolean isAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
+    }
+
     public static LivroDeReceitasDTO livroMapper(LivroDeReceitas livroDeReceitas) {
         LivroDeReceitasDTO dto = new LivroDeReceitasDTO();
         dto.setTitulo(livroDeReceitas.getTitulo());
         dto.setNumeroDePaginas(livroDeReceitas.getNumeroDePaginas());
         dto.setEhBom(livroDeReceitas.isEhBom());
+        dto.setAtivo(livroDeReceitas.isAtivo());
         return dto;
     }
 }
