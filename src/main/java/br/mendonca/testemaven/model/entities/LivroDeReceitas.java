@@ -5,7 +5,7 @@ public class LivroDeReceitas {
     private String titulo;
     private int numeroDePaginas;
     private boolean ehBom;
-    private boolean ativo;
+    private boolean ativo = true;
 
     public String getUUID() {
         return UUID;

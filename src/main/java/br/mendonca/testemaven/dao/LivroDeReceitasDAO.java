@@ -26,7 +26,7 @@ public class LivroDeReceitasDAO {
         conn.setAutoCommit(true);
 
         Statement st = conn.createStatement();
-        ResultSet rs = st.executeQuery("SELECT * FROM livroDeReceitas");
+        ResultSet rs = st.executeQuery("SELECT * FROM livroDeReceitas WHERE ativo = true");
 
         while (rs.next()) {
             LivroDeReceitas livro = new LivroDeReceitas();

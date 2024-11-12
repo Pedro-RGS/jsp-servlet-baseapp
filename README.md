@@ -44,6 +44,7 @@ Demandas:
   - O usuário consegue inserir uma ou mais entidades de forma permanente
   - Preencher about.jsp
   - O usuário instala as novas tabelas com 7 entidades já criadas
+  - O usuário pode deletar o indivíduo da listagem mas ele não é apagado de verdade
   
 
 ### Link da página do cliente
