@@ -119,4 +119,16 @@ public class LivroDeReceitasDAO {
 
         return lista;
     }
+
+    public void delete(String titulo, int numero) throws ClassNotFoundException, SQLException{
+        Connection conn = ConnectionPostgres.getConexao();
+        conn.setAutoCommit(true);
+
+        // Apesar de qualquer SQL funcionar com Statement, a abordagem de usar Prepared Statement evita SQL Injection.
+        PreparedStatement ps = conn.prepareStatement("UPDATE livroDeReceitas SET ativo = false WHERE title = ? AND numberOfPages = ?");
+        ps.setString(1, titulo);
+        ps.setInt(2, numero);
+
+        int rs = ps.executeUpdate();
+    }
 }

@@ -67,7 +67,14 @@
       <td><%= livro.getTitulo() %></td>
       <td><%= livro.getNumeroDePaginas() %></td>
       <td><%= livro.isEhBom() %></td>
-      <td>Apagar</td>
+      <td>
+        <form action="/dashboard/livros" method="post">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="hidden" name="titulo" value="<%=livro.getTitulo()%>">
+            <input type="hidden" name="paginas" value="<%= livro.getNumeroDePaginas() %>">
+            <button class="btn btn-success" type="submit">Apagar</button>
+        </form>
+      </td>
     </tr>
     <% } %>
     </tbody>

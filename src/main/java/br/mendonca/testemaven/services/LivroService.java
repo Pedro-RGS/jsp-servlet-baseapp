@@ -48,4 +48,9 @@ public class LivroService {
 
         return resp;
     }
+
+    public void delete(String titulo, int numero) throws ClassNotFoundException, SQLException{
+        LivroDeReceitasDAO dao = new LivroDeReceitasDAO();
+        dao.delete(titulo, numero);
+    }
 }
