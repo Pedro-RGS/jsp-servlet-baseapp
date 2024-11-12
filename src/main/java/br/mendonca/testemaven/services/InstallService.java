@@ -68,4 +68,17 @@ public class InstallService {
 				+ "    ('Drácula', 418, TRUE, FALSE),"
 				+ "    ('O Código Da Vinci', 689, FALSE, TRUE);");
 	}
+
+	public void createIngredienteTable() throws ClassNotFoundException, SQLException {
+		statement("CREATE TABLE ingredientes ("
+				+ "    uuid UUID DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY,"
+				+ "    nome VARCHAR(255) NOT NULL,"
+				+ "    descricao VARCHAR(255) NOT NULL,"
+				+ "    categoria VARCHAR(255) NOT NULL,"
+				+ "    quantidade INT NOT NULL,"
+				+ "    gramas INT NOT NULL,"
+				+ "    preco INT NOT NULL,"
+				+ "    disponivel BOOLEAN NOT NULL"
+				+ ");");
+	}
 }

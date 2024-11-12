@@ -15,27 +15,24 @@ import java.io.StringWriter;
 public class InstallDatabaseServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		response.setContentType("text/html");
 		PrintWriter page = response.getWriter();
+		StringBuilder msg = new StringBuilder("<h1>INSTALL DATABASE</h1>");
 
 		try {
 			InstallService service = new InstallService();
-			String msg = "<h1>INSTALL DATABASE</h1>";
 
 			service.testConnection();
-			msg += "<h2>Connection DB sucessful!</h2>\n";
+			msg.append("<h2>Connection to DB successful!</h2>");
 
 			service.deleteUserTable();
-			msg += "<h2>Delete table user sucessful!</h2>\n";
-
 			service.createUserTable();
-			msg += "<h2>Create table user sucessful!</h2>\n";
+			msg.append("<h2>Delete and Create table 'user' successful!</h2>");
 
 			service.deleteLivroTable();
-			msg += "<h2>Delete table livro sucessful!</h2>\n";
-
 			service.createLivroTable();
+			msg.append("<h2>Delete and Create table 'livro' successful!</h2>");
 			msg += "<h2>Create table livro sucessful!</h2>\n";
 
 			service.povoarLivro();
@@ -45,25 +42,18 @@ public class InstallDatabaseServlet extends HttpServlet {
 			msg += "<h2>Create table chef sucessful!</h2>\n";
 
 			service.deleteChefTable();
-			msg += "<h2>Delete table chef sucessful!</h2>\n";
+			service.createChefTable();
+			msg.append("<h2>Delete and Create table 'chef' successful!</h2>");
+
+			service.createIngredienteTable();
+			msg.append("<h2>Create table 'ingredientes' successful!</h2>");
 
 			page.println("<html lang='pt-br'><head><title>Teste</title></head><body>");
 			page.println(msg);
-
-			/*/
-			page.println("<code>");
-			for (Map.Entry<String,String> pair : env.entrySet()) {
-			    page.println(pair.getKey());
-			    page.println(pair.getValue());
-			}
-			//*/
-			page.println("</code>");
 			page.println("</body></html>");
 			page.close();
 
 		} catch (Exception e) {
-			// Escreve as mensagens de Exception em uma página de resposta.
-			// Não apagar este bloco.
 			StringWriter sw = new StringWriter();
 			PrintWriter pw = new PrintWriter(sw);
 			e.printStackTrace(pw);
@@ -71,12 +61,10 @@ public class InstallDatabaseServlet extends HttpServlet {
 			page.println("<html lang='pt-br'><head><title>Error</title></head><body>");
 			page.println("<h1>Error</h1>");
 			page.println("<code>");
-			page.println(sw.toString());
+			page.println(sw);
 			page.println("</code>");
 			page.println("</body></html>");
 			page.close();
-		} finally {
-
 		}
 	}
 }
