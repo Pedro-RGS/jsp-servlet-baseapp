@@ -32,4 +32,17 @@ public class InstallService {
 					+ "    email VARCHAR(255) NOT NULL,"
 					+ "    password VARCHAR(255) NOT NULL)");
 	}
+
+	public void createIngredienteTable() throws ClassNotFoundException, SQLException {
+		statement("CREATE TABLE ingredientes ("
+				+ "    uuid UUID DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY,"
+				+ "    nome VARCHAR(255) NOT NULL,"
+				+ "    descricao VARCHAR(255) NOT NULL,"
+				+ "    categoria VARCHAR(255) NOT NULL,"
+				+ "    quantidade INT NOT NULL,"
+				+ "    gramas INT NOT NULL,"
+				+ "    preco INT NOT NULL,"
+				+ "    disponivel BOOLEAN NOT NULL"
+				+ ");");
+	}
 }

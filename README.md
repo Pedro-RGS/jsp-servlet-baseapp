@@ -24,8 +24,6 @@
 - Murilo Gonçalves de Lucena
   Demandas:
   - O usuário consegue instalar novas tabelas no BD pelo endpoint 'install'
-  - Preencher About
-  - Preencher Readme
   
 
 ### Link da página do cliente

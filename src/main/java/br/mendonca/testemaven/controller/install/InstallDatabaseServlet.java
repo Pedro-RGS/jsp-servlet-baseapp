@@ -35,6 +35,9 @@ public class InstallDatabaseServlet extends HttpServlet {
 			service.createUserTable();
 			msg.append("<h2>Create table 'user' successful!</h2>");
 
+			service.createIngredienteTable(); // Adicionando criação da tabela 'ingredientes'
+			msg.append("<h2>Create table 'ingredientes' successful!</h2>");
+
 		} catch (Exception e) {
 			// Em caso de erro, exibe a stack trace
 			StringWriter sw = new StringWriter();
