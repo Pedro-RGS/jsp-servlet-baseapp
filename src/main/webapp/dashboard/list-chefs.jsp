@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.List"%>
-<%@ page import="br.mendonca.testemaven.services.dto.UserDTO"%>
-<%@ page import="br.mendonca.testemaven.services.dto.LivroDeReceitasDTO" %>
+<%@ page import="br.mendonca.testemaven.services.dto.ChefDTO" %>
+<%@ page import="br.mendonca.testemaven.model.entities.Chef" %>
 
-<% if (session.getAttribute("user") != null && request.getAttribute("lista") != null) { %>
+<% if (session.getAttribute("chef") != null && request.getAttribute("lista") != null) { %>
 
 <!doctype html>
 <html lang="pt-br" data-bs-theme="dark">
@@ -44,27 +44,27 @@
 
 
 
-    <h1 class="h3 mb-3 fw-normal">Livros</h1>
+    <h1 class="h3 mb-3 fw-normal">Chefs</h1>
     <table class="table">
         <thead>
         <tr>
             <th scope="col"></th>
-            <th scope="col">Título</th>
-            <th scope="col">Número de Páginas</th>
-            <th scope="col">É bom?</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Idade</th>
+            <th scope="col">Ativo</th>
             <th scope="col"></th>
         </tr>
         </thead>
         <tbody>
         <%
-            List<LivroDeReceitasDTO> lista = (List<LivroDeReceitasDTO>) request.getAttribute("lista");
-            for (LivroDeReceitasDTO livro : lista) {
+            List<ChefDTO> lista = (List<ChefDTO>) request.getAttribute("lista");
+            for (ChefDTO chef : lista) {
         %>
         <tr>
             <td>Editar</td>
-            <td><%= livro.getTitulo() %></td>
-            <td><%= livro.getNumeroDePaginas() %></td>
-            <td><%= livro.isEhBom() %></td>
+            <td><%= chef.getNome() %></td>
+            <td><%= chef.getIdade() %></td>
+            <td><%= chef.getAtivo() %></td>
             <td>Apagar</td>
         </tr>
         <% } %>
