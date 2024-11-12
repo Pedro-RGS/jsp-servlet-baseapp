@@ -38,6 +38,8 @@ if (session.getAttribute("user") != null) {
 						<li class="nav-item"><a class="nav-link" href="/dashboard/dashboard.jsp">Home</a></li>
 						<li class="nav-item"><a class="nav-link" href="/dashboard/users">Users</a></li>
 						<li class="nav-item"><a class="nav-link" href="/dashboard/livros">Listar Livros</a></li>
+						<li class="nav-item"><a class="nav-link" href="/register/livro">Cadastrar Livros</a></li>
+						<li class="nav-item"><a class="nav-link" href="/ingredientes/register">Ingredientes</a></li>
 						<li class="nav-item"><a class="nav-link" href="/dashboard/about.jsp">About</a></li>
 					</ul>
 					<span class="navbar-text">
@@ -64,8 +66,8 @@ if (session.getAttribute("user") != null) {
 				</tr>
 				<tr>
 					<th scope="col">Murilo Lucena</th>
-					<th scope="col">Coloque aqui sua entidade de trabalho</th>
-					<td scope="col">Coloque aqui sua regra de negócio</td>
+					<th scope="col">Ingredientes</th>
+					<td scope="col">Registrar e Listar Ingredientes</td>
 				</tr>
 				<tr>
 					<td scope="col">Paula Beatriz Lucas Oliveira</td>

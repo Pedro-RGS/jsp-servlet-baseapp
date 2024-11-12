@@ -54,6 +54,31 @@ public class InstallService {
 				+ "    uuid UUID DEFAULT gen_random_uuid() PRIMARY KEY,"
 				+ "    title VARCHAR(255) NOT NULL,"
 				+ "    numberOfPages INT NOT NULL,"
-				+ "    isGood BOOLEAN NOT NULL)");
+				+ "    isGood BOOLEAN NOT NULL,"
+				+ "    ativo BOOLEAN NOT NULL)");
+	}
+
+	public void povoarLivro() throws ClassNotFoundException, SQLException{
+		statement("INSERT INTO livroDeReceitas (title, numberOfPages, isGood, ativo) VALUES"
+				+ "    ('Dom Quixote', 863, TRUE, TRUE),"
+				+ "    ('O Senhor dos Anéis', 1216, TRUE, TRUE),"
+				+ "    ('1984', 328, TRUE, TRUE),"
+				+ "    ('O Pequeno Príncipe', 96, TRUE, TRUE),"
+				+ "    ('Moby Dick', 635, FALSE, TRUE),"
+				+ "    ('Drácula', 418, TRUE, FALSE),"
+				+ "    ('O Código Da Vinci', 689, FALSE, TRUE);");
+	}
+
+	public void createIngredienteTable() throws ClassNotFoundException, SQLException {
+		statement("CREATE TABLE ingredientes ("
+				+ "    uuid UUID DEFAULT gen_random_uuid() NOT NULL PRIMARY KEY,"
+				+ "    nome VARCHAR(255) NOT NULL,"
+				+ "    descricao VARCHAR(255) NOT NULL,"
+				+ "    categoria VARCHAR(255) NOT NULL,"
+				+ "    quantidade INT NOT NULL,"
+				+ "    gramas INT NOT NULL,"
+				+ "    preco INT NOT NULL,"
+				+ "    disponivel BOOLEAN NOT NULL"
+				+ ");");
 	}
 }

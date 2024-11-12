@@ -3,7 +3,7 @@
 <%@ page import="br.mendonca.testemaven.services.dto.UserDTO"%>
 <%@ page import="br.mendonca.testemaven.services.dto.LivroDeReceitasDTO" %>
 
-<% if (session.getAttribute("user") != null && request.getAttribute("lista") != null) { %>
+<% if (request.getAttribute("lista") != null) { %>
 
 <!doctype html>
 <html lang="pt-br" data-bs-theme="dark">
@@ -32,8 +32,6 @@
           <li class="nav-item"><a class="nav-link" href="/dashboard/dashboard.jsp">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="/dashboard/users">Users</a></li>
           <li class="nav-item"><a class="nav-link" href="/dashboard/livros">Listar Livros</a></li>
-          <li class="nav-item"><a class="nav-link" href="/dashboard/chefs">Listar Chefs</a></li>
-          <li class="nav-item"><a class="nav-link" href="/register/chef">Cadastrar Chefs</a></li>
           <li class="nav-item"><a class="nav-link" href="/register/livro">Cadastrar Livros</a></li>
           <li class="nav-item"><a class="nav-link" href="/dashboard/about.jsp">About</a></li>
         </ul>
@@ -46,7 +44,7 @@
 
 
 
-  <h1 class="h3 mb-3 fw-normal">Livros</h1>
+  <h1 class="h3 mb-3 fw-normal">Livros ocultos</h1>
   <table class="table">
     <thead>
     <tr>
@@ -72,9 +70,6 @@
     <% } %>
     </tbody>
   </table>
-  <form action="/dashboard/ocultos" method="get">
-    <button class="btn btn-success" type="submit">Ver Livros Ocultos</button>
-  </form>
 
 
 </main>

@@ -1,6 +1,5 @@
 package br.mendonca.testemaven.controller.auth;
 
-
 import br.mendonca.testemaven.dao.ChefDAO;
 import br.mendonca.testemaven.model.entities.Chef;
 import jakarta.servlet.ServletException;
@@ -20,7 +19,6 @@ public class RegisterChefServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Caso o usu rio tente acessar este end point pelo m todo GET, recebe a p gina de formul rio JSP.
         request.getRequestDispatcher("/form-register-chef.jsp").forward(request, response);
-
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -55,8 +53,6 @@ public class RegisterChefServlet extends HttpServlet {
             page.println("</body></html>");
             page.close();
         } finally {
-
         }
     }
-
 }

@@ -33,6 +33,8 @@
 						<li class="nav-item"><a class="nav-link" href="/dashboard/livros">Listar Livros</a></li>
 						<li class="nav-item"><a class="nav-link" href="/dashboard/chefs">Listar Chefs</a></li>
 						<li class="nav-item"><a class="nav-link" href="/register/chef">Cadastrar Chefs</a></li>
+						<li class="nav-item"><a class="nav-link" href="/register/livro">Cadastrar Livros</a></li>
+						<li class="nav-item"><a class="nav-link" href="/ingredientes/register">Ingredientes</a></li>
 						<li class="nav-item"><a class="nav-link" href="/dashboard/about.jsp">About</a></li>
 					</ul>
 					<span class="navbar-text">

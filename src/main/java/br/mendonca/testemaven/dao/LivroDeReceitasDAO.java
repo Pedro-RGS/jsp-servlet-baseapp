@@ -26,7 +26,31 @@ public class LivroDeReceitasDAO {
         conn.setAutoCommit(true);
 
         Statement st = conn.createStatement();
-        ResultSet rs = st.executeQuery("SELECT * FROM livroDeReceitas");
+        ResultSet rs = st.executeQuery("SELECT * FROM livroDeReceitas WHERE ativo = true");
+
+        while (rs.next()) {
+            LivroDeReceitas livro = new LivroDeReceitas();
+            livro.setUUID(rs.getString("uuid"));
+            livro.setTitulo(rs.getString("title"));
+            livro.setNumeroDePaginas(rs.getInt("numberOfPages"));
+            livro.setEhBom(rs.getBoolean("isGood"));
+
+            lista.add(livro);
+        }
+
+        rs.close();
+
+        return lista;
+    }
+
+    public List<LivroDeReceitas> listLivrosOcultos() throws ClassNotFoundException, SQLException {
+        ArrayList<LivroDeReceitas> lista = new ArrayList<>();
+
+        Connection conn = ConnectionPostgres.getConexao();
+        conn.setAutoCommit(true);
+
+        Statement st = conn.createStatement();
+        ResultSet rs = st.executeQuery("SELECT * FROM livroDeReceitas WHERE ativo = false");
 
         while (rs.next()) {
             LivroDeReceitas livro = new LivroDeReceitas();
