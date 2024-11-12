@@ -34,4 +34,18 @@ public class LivroService {
 
         return resp;
     }
+
+    public List<LivroDeReceitasDTO> listLivrosOcultos() throws ClassNotFoundException, SQLException {
+
+        ArrayList<LivroDeReceitasDTO> resp = new ArrayList<>();
+
+        LivroDeReceitasDAO dao = new LivroDeReceitasDAO();
+        List<LivroDeReceitas> lista = dao.listLivrosOcultos();
+
+        for (LivroDeReceitas livro : lista) {
+            resp.add(LivroDeReceitasDTO.livroMapper(livro));
+        }
+
+        return resp;
+    }
 }

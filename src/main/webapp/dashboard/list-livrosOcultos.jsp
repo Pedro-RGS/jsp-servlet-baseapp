@@ -3,7 +3,7 @@
 <%@ page import="br.mendonca.testemaven.services.dto.UserDTO"%>
 <%@ page import="br.mendonca.testemaven.services.dto.LivroDeReceitasDTO" %>
 
-<% if (session.getAttribute("user") != null && request.getAttribute("lista") != null) { %>
+<% if (request.getAttribute("lista") != null) { %>
 
 <!doctype html>
 <html lang="pt-br" data-bs-theme="dark">
@@ -44,7 +44,7 @@
 
 
 
-  <h1 class="h3 mb-3 fw-normal">Livros</h1>
+  <h1 class="h3 mb-3 fw-normal">Livros ocultos</h1>
   <table class="table">
     <thead>
     <tr>
@@ -70,9 +70,6 @@
     <% } %>
     </tbody>
   </table>
-  <form action="/dashboard/ocultos" method="get">
-    <button class="btn btn-success" type="submit">Ver Livros Ocultos</button>
-  </form>
 
 
 </main>
