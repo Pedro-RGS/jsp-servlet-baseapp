@@ -1,9 +1,7 @@
-package br.mendonca.testemaven.controller.auth;
+package br.mendonca.testemaven.controller;
 
 import br.mendonca.testemaven.dao.LivroDeReceitasDAO;
-import br.mendonca.testemaven.dao.UserDAO;
 import br.mendonca.testemaven.model.entities.LivroDeReceitas;
-import br.mendonca.testemaven.model.entities.User;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -14,13 +12,13 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
-@WebServlet("dashboard/register/livro")
-public class RegistarLivroServlet extends HttpServlet {
+@WebServlet("/register/livro")
+public class RegisterLivroServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Caso o usu�rio tente acessar este end point pelo m�todo GET, recebe a p�gina de formul�rio JSP.
-        response.sendRedirect("form-register-livro.jsp");
+        request.getRequestDispatcher("/form-register-livro.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -28,19 +26,19 @@ public class RegistarLivroServlet extends HttpServlet {
         PrintWriter page = response.getWriter();
 
         try {
-            String nome = request.getParameter("title");
-            String numero = request.getParameter("numberOfPages");
-            String ehBom = request.getParameter("isGood");
+            String name = request.getParameter("title");
+            String email = request.getParameter("paginas");
+            String pass = request.getParameter("isGood");
 
             LivroDeReceitas livro = new LivroDeReceitas();
-            livro.setTitulo(nome);
-            livro.setNumeroDePaginas(Integer.parseInt(numero));
-            livro.setEhBom(Boolean.parseBoolean(ehBom));
+            livro.setTitulo(name);
+            livro.setNumeroDePaginas(Integer.parseInt(email));
+            livro.setEhBom(Boolean.parseBoolean(pass));
 
             LivroDeReceitasDAO dao = new LivroDeReceitasDAO();
             dao.register(livro);
 
-            response.sendRedirect("dashboard.jsp");
+            response.sendRedirect("/dashboard/dashboard.jsp");
 
         } catch (Exception e) {
             // Escreve as mensagens de Exception em uma p�gina de resposta.
@@ -54,8 +52,6 @@ public class RegistarLivroServlet extends HttpServlet {
             page.println("</body></html>");
             page.close();
         } finally {
-
         }
     }
-
 }
