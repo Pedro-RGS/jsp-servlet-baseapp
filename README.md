@@ -30,7 +30,11 @@
 
 ### Semana 3
 - Pedro Ricardo Gomes de Souza
-  Demandas:
+
+Demandas:
+  - O usuário consegue inserir novas tabelas no bd
+  - O usuário consegue inserir uma ou mais entidades de forma permanente
+  - Preencher about.jsp
   
 
 ### Link da página do cliente
