@@ -53,6 +53,7 @@ Demandas:
   - O usuário instala as novas tabelas com 7 entidades já criadas
   - O usuário pode ver os itens ocultos através de um item de menu
   - O usuário pode deletar um indivíduo da listagem, mas ele não é deletado de verdade
+  - Atualizar o README com as demandas finalizadas dessa semana
   
 
 ### Link da página do cliente

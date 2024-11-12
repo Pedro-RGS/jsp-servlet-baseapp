@@ -55,7 +55,7 @@ public class InstallService {
 				+ "    title VARCHAR(255) NOT NULL,"
 				+ "    numberOfPages INT NOT NULL,"
 				+ "    isGood BOOLEAN NOT NULL,"
-				+ "    ativo BOOLEAN NOT NULL)");
+				+ "    ativo BOOLEAN DEFAULT TRUE)");
 	}
 
 	public void povoarLivro() throws ClassNotFoundException, SQLException{
