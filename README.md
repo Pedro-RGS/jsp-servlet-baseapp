@@ -50,6 +50,13 @@
 
 
 ### Semana 3
+
+- Murilo Gonçalves de Lucena
+  Demandas:
+  - O usuário instala as novas tabelas do banco com 7 indivíduos pelo endpoint "install"
+  - O Usuário visualiza todos os indivíduos listados com paginação de 3 indivíduos 
+
+
 - Pedro Ricardo Gomes de Souza
 
 Demandas:
