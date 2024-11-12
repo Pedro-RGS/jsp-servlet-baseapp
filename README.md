@@ -35,6 +35,7 @@ Demandas:
   - O usuário consegue inserir novas tabelas no bd
   - O usuário consegue inserir uma ou mais entidades de forma permanente
   - Preencher about.jsp
+  - O usuário instala as novas tabelas com 7 entidades já criadas
   
 
 ### Link da página do cliente
