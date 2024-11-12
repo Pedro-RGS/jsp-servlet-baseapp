@@ -42,7 +42,7 @@ public class InstallService {
 	}
 
 	public void createChefTable() throws ClassNotFoundException, SQLException {
-		statement("CREATE TABLE chefs ("
+		statement("CREATE TABLE chef ("
 				+ "    uuid UUID DEFAULT gen_random_uuid() PRIMARY KEY,"
 				+ "    nome VARCHAR(255) NOT NULL,"
 				+ "    idade INT NOT NULL,"
