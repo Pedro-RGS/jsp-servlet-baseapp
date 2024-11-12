@@ -10,31 +10,38 @@ import java.util.List;
 
 public class IngredientesService {
 
-    public void registar(String nome, String descricao, String categoria, int quantidade, int gramas, int preco, boolean disponivel) throws ClassNotFoundException, SQLException {
-        IngredientesDAO ingredientesDAO = new IngredientesDAO();
+    private final IngredientesDAO ingredientesDAO = new IngredientesDAO();
 
-        Ingredientes ingredientesBanco = new Ingredientes();
-        ingredientesBanco.setNome(nome);
-        ingredientesBanco.setDescricao(descricao);
-        ingredientesBanco.setCategoria(categoria);
-        ingredientesBanco.setQuantidade(quantidade);
-        ingredientesBanco.setGramas(gramas);
-        ingredientesBanco.setPreco(preco);
-        ingredientesBanco.setDisponivel(disponivel);
+    public void registrar(String nome, String descricao, String categoria, int quantidade, int gramas, int preco, boolean disponivel) throws SQLException, ClassNotFoundException {
+        Ingredientes ingrediente = new Ingredientes();
+        ingrediente.setNome(nome);
+        ingrediente.setDescricao(descricao);
+        ingrediente.setCategoria(categoria);
+        ingrediente.setQuantidade(quantidade);
+        ingrediente.setGramas(gramas);
+        ingrediente.setPreco(preco);
+        ingrediente.setDisponivel(disponivel);
 
-        ingredientesDAO.registrar(ingredientesBanco);
+        ingredientesDAO.registrar(ingrediente);
     }
 
-    public List<IngredientesDTO> listarTodosIngredientes() throws ClassNotFoundException, SQLException {
-        ArrayList<IngredientesDTO> ingredientesDTOArrayList = new ArrayList<IngredientesDTO>();
-
-        IngredientesDAO ingredientesDAO = new IngredientesDAO();
+    public List<IngredientesDTO> listarTodosIngredientes() throws SQLException, ClassNotFoundException {
         List<Ingredientes> listaIngredientes = ingredientesDAO.listarTodosIngredientes();
+        List<IngredientesDTO> ingredientesDTOList = new ArrayList<>();
 
-        for (Ingredientes ingredientes : listaIngredientes) {
-            ingredientesDTOArrayList.add(IngredientesDTO.userMapper(ingredientes));
+        for (Ingredientes ingrediente : listaIngredientes) {
+            ingredientesDTOList.add(IngredientesDTO.userMapper(ingrediente));
         }
 
-        return ingredientesDTOArrayList;
+        return ingredientesDTOList;
+    }
+
+    public List<IngredientesDTO> listarIngredientesPaginado(int page, int itemsPerPage) throws SQLException, ClassNotFoundException {
+        int offset = (page - 1) * itemsPerPage;
+        return ingredientesDAO.listarPaginado(offset, itemsPerPage);
+    }
+
+    public int contarIngredientes() throws SQLException, ClassNotFoundException {
+        return ingredientesDAO.contarTotal();
     }
 }
