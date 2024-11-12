@@ -28,7 +28,10 @@
     - 
     - O usuário consegue listar todas as entidades
 
-
+### Semana 3
+- Pedro Ricardo Gomes de Souza
+  Demandas:
+  
 
 ### Link da página do cliente
 https://jsp-servlet-baseapp-pl1m.onrender.com
