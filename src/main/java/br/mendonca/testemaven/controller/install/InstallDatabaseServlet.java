@@ -33,13 +33,13 @@ public class InstallDatabaseServlet extends HttpServlet {
 			service.deleteLivroTable();
 			service.createLivroTable();
 			msg.append("<h2>Delete and Create table 'livro' successful!</h2>");
-			msg += "<h2>Create table livro sucessful!</h2>\n";
+			msg.append("<h2>Create table livro sucessful!</h2>");
 
 			service.povoarLivro();
-			msg += "<h2>Povoar table livro de receitas sucessful!</h2>\n";
+			msg.append("<h2>Povoar table livro de receitas sucessful!</h2>");
 
 			service.createChefTable();
-			msg += "<h2>Create table chef sucessful!</h2>\n";
+			msg.append("<h2>Create table chef sucessful!</h2>\n");
 
 			service.deleteChefTable();
 			service.createChefTable();
