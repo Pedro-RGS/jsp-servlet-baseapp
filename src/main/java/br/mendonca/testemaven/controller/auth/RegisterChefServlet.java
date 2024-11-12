@@ -41,7 +41,7 @@ public class RegisterChefServlet extends HttpServlet {
             ChefDAO chefDAO = new ChefDAO();
             chefDAO.register(chef);
 
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("/dashboard/chefs");
 
         } catch (Exception e) {
             // Escreve as mensagens de Exception em uma p gina de resposta.

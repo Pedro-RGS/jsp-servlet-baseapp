@@ -11,10 +11,10 @@
 <body class="d-flex align-items-center py-4 bg-body-tertiary">
 
 <main class="w-100 m-auto form-container">
-    <form action="register" method="post">
+    <form action="/register/chef" method="post">
         <h1 class="h3 mb-3 fw-normal">Cadastrar novo chef:</h1>
         <div class="form-floating">
-            <input type="text" name="name" class="form-control" id="floatingNome" placeholder="Digite seu nome" />
+            <input type="text" name="nome" class="form-control" id="floatingNome" placeholder="Digite seu nome" />
             <label for="floatingNome">Nome</label>
         </div>
         <div class="form-floating">
