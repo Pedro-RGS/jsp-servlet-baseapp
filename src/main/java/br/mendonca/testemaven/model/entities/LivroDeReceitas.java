@@ -5,6 +5,7 @@ public class LivroDeReceitas {
     private String titulo;
     private int numeroDePaginas;
     private boolean ehBom;
+    private boolean ativo;
 
     public String getUUID() {
         return UUID;
@@ -36,5 +37,13 @@ public class LivroDeReceitas {
 
     public void setEhBom(boolean ehBom) {
         this.ehBom = ehBom;
+    }
+
+    public boolean isAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
     }
 }
