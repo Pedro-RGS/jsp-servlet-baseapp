@@ -22,7 +22,7 @@ public class ChefService {
         dao.register(chef);
     }
 
-    public List<ChefDTO> listAllUsers() throws ClassNotFoundException, SQLException {
+    public List<ChefDTO> listAllChefs() throws ClassNotFoundException, SQLException {
         ArrayList<ChefDTO> resp = new ArrayList<>();
 
         ChefDAO dao = new ChefDAO();
