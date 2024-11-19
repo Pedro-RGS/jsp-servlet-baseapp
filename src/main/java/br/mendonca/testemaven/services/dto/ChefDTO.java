@@ -8,6 +8,15 @@ public class ChefDTO {
     private String nome;
     private Integer idade;
     private Boolean ativo;
+    private Boolean visivel;
+
+    public Boolean getVisivel() {
+        return visivel;
+    }
+
+    public void setVisivel(Boolean visivel) {
+        this.visivel = visivel;
+    }
 
     public Integer getIdade() {
         return idade;
@@ -31,6 +40,7 @@ public class ChefDTO {
         ChefDTO dto = new ChefDTO();
         dto.setNome(chef.getNome());
         dto.setIdade(chef.getIdade());
+        dto.setVisivel(chef.getVisivel());
 
         return dto;
     }

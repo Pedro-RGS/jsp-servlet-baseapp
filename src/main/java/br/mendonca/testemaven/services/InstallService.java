@@ -46,7 +46,8 @@ public class InstallService {
 				+ "    uuid UUID DEFAULT gen_random_uuid() PRIMARY KEY,"
 				+ "    nome VARCHAR(255) NOT NULL,"
 				+ "    idade INT NOT NULL,"
-				+ "    ativo BOOLEAN NOT NULL)");
+				+ "    ativo BOOLEAN NOT NULL,"
+				+ "    visivel BOOLEAN NOT NULL);");
 	}
 
 	public void createLivroTable() throws ClassNotFoundException, SQLException {
@@ -56,6 +57,17 @@ public class InstallService {
 				+ "    numberOfPages INT NOT NULL,"
 				+ "    isGood BOOLEAN NOT NULL,"
 				+ "    ativo BOOLEAN NOT NULL)");
+	}
+
+	public void povoarChef() throws ClassNotFoundException, SQLException{
+		statement("INSERT INTO chef (nome, idade, ativo, visivel) VALUES"
+				+ "    ('Victoria', 32, FALSE, TRUE),"
+				+ "    ('John', 35, FALSE, FALSE),"
+				+ "    ('Kimiko', 28, TRUE, TRUE),"
+				+ "    ('Annie', 22, TRUE, FALSE),"
+				+ "    ('Stan', 67, FALSE, FALSE),"
+				+ "    ('Frenchie', 33, TRUE, TRUE),"
+				+ "    ('MM', 42, TRUE, TRUE);");
 	}
 
 	public void povoarLivro() throws ClassNotFoundException, SQLException{

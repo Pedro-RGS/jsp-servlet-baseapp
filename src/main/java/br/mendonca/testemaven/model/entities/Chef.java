@@ -6,6 +6,7 @@ public class Chef {
     private String nome;
     private Integer idade;
     private Boolean ativo;
+    private Boolean visivel;
 
     public String getUuid() {
         return uuid;
@@ -37,5 +38,13 @@ public class Chef {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public Boolean getVisivel() {
+        return visivel;
+    }
+
+    public void setVisivel(Boolean visivel) {
+        this.visivel = visivel;
     }
 }
