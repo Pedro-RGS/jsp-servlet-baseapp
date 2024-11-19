@@ -81,6 +81,24 @@
         </tbody>
     </table>
 
+    <%
+        Integer currentPage = (Integer) request.getAttribute("currentPage");
+        if (currentPage == null) {
+            currentPage = 1;
+        }
+    %>
+
+    <div class="pagination">
+        <form action="/dashboard/chefs" method="get" style="display: inline;">
+            <input type="hidden" name="page" value="<%= currentPage > 1 ? currentPage - 1 : 1 %>">
+            <button type="submit" class="btn btn-primary" <%= currentPage == 1 ? "disabled" : "" %>>Página Anterior</button>
+        </form>
+
+        <form action="/dashboard/chefs" method="get" style="display: inline;">
+            <input type="hidden" name="page" value="<%= currentPage + 1 %>">
+            <button type="submit" class="btn btn-primary">Próxima Página</button>
+        </form>
+    </div>
     <form action="/dashboard/ocults" method="get">
         <button class="btn btn-success" type="submit">Ver Chefs Ocultos</button>
     </form>

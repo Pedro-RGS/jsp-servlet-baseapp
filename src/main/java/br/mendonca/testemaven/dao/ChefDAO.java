@@ -22,14 +22,17 @@ public class ChefDAO {
         ps.close();
     }
 
-    public List<Chef> listAllChefs() throws ClassNotFoundException, SQLException {
+    public List<Chef> listAllChefs(int limit, int offset) throws ClassNotFoundException, SQLException {
         ArrayList<Chef> lista = new ArrayList<Chef>();
 
         Connection conn = ConnectionPostgres.getConexao();
         conn.setAutoCommit(true);
 
-        Statement st = conn.createStatement();
-        ResultSet rs = st.executeQuery("SELECT * FROM chef WHERE visivel = true");
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM chef WHERE visivel = true LIMIT ? OFFSET ?");
+        ps.setInt(1, limit);
+        ps.setInt(2, offset);
+
+        ResultSet rs = ps.executeQuery();
 
         while (rs.next()) {
             Chef chef = new Chef();
@@ -47,14 +50,17 @@ public class ChefDAO {
         return lista;
     }
 
-    public List<Chef> listChefssOcultos() throws ClassNotFoundException, SQLException {
+    public List<Chef> listChefssOcultos(int limit, int offset) throws ClassNotFoundException, SQLException {
         ArrayList<Chef> lista = new ArrayList<>();
 
         Connection conn = ConnectionPostgres.getConexao();
         conn.setAutoCommit(true);
 
-        Statement st = conn.createStatement();
-        ResultSet rs = st.executeQuery("SELECT * FROM chef WHERE visivel = false");
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM chef WHERE visivel = false LIMIT ? OFFSET ?");
+        ps.setInt(1, limit);
+        ps.setInt(2, offset);
+
+        ResultSet rs = ps.executeQuery();
 
         while (rs.next()) {
             Chef chef = new Chef();

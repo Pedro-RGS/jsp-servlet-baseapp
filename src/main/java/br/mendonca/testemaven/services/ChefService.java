@@ -25,11 +25,15 @@ public class ChefService {
         dao.register(chef);
     }
 
-    public List<ChefDTO> listAllChefs() throws ClassNotFoundException, SQLException {
+    public List<ChefDTO> listAllChefs(int page) throws ClassNotFoundException, SQLException {
+
+        int limit = 3;
+        int offset = (page - 1) * limit;
+
         ArrayList<ChefDTO> resp = new ArrayList<>();
 
         ChefDAO dao = new ChefDAO();
-        List<Chef> lista = dao.listAllChefs();
+        List<Chef> lista = dao.listAllChefs(limit, offset);
 
         for (Chef chef : lista) {
             resp.add(ChefDTO.chefMapper(chef));
@@ -38,12 +42,15 @@ public class ChefService {
         return resp;
     }
 
-    public List<ChefDTO> listAllChefsOcultos() throws ClassNotFoundException, SQLException {
+    public List<ChefDTO> listAllChefsOcultos(int page) throws ClassNotFoundException, SQLException {
+
+        int limit = 3;
+        int offset = (page - 1) * limit;
 
         ArrayList<ChefDTO> resp = new ArrayList<>();
 
         ChefDAO dao = new ChefDAO();
-        List<Chef> lista = dao.listChefssOcultos();
+        List<Chef> lista = dao.listChefssOcultos(limit, offset);
 
         for (Chef chef : lista) {
             resp.add(ChefDTO.chefMapper(chef));
