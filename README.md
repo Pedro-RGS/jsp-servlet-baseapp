@@ -80,6 +80,7 @@
 Demandas:
 - o usuário instala as novas tabelas do banco com 7 indivíduos pelo endpoint install; 
 - o usuário através de um item de menu pode listar os "ocultos";
+- o usuário pode deletar um individuo cadastrado da listagem, mas o individuo não é apagado do banco é marcado para não visualização;
 
 - Murilo Gonçalves de Lucena 
 Demandas:
