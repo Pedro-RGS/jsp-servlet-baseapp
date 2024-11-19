@@ -8,44 +8,36 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Lista de Ingredientes</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="style.css" rel="stylesheet">
 </head>
-<body>
+<body class="d-flex align-items-center py-4 bg-body-tertiary">
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Dashboard</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link" href="/dashboard/dashboard.jsp">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="/dashboard/users">Users</a></li>
-        <li class="nav-item"><a class="nav-link" href="/dashboard/livros">Listar Livros</a></li>
-        <li class="nav-item"><a class="nav-link" href="/register/livro">Cadastrar Livros</a></li>
-        <li class="nav-item"><a class="nav-link" href="/ingredientes/register">Ingredientes</a></li>
-        <li class="nav-item"><a class="nav-link" href="/dashboard/about.jsp">About</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<main class="w-100 m-auto form-container">
 
-<!-- Main Content -->
-<main class="container mt-4">
-  <h1 class="h3 mb-3">Ingredientes</h1>
+  <!-- Navbar -->
+  <jsp:include page="/cabecalho.html" />
+
+  <!-- Título e botão para adicionar novo ingrediente -->
+  <h1 class="h3 mb-3 fw-normal">Ingredientes</h1>
   <a href="/dashboard/register-ingrediente.jsp" class="btn btn-primary mb-3">Novo Ingrediente</a>
 
   <!-- Tabela de ingredientes -->
   <table class="table">
     <thead>
     <tr>
-      <th>Nome</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Descrição</th>
+      <th scope="col">Categoria</th>
+      <th scope="col">Quantidade</th>
+      <th scope="col">Gramas</th>
+      <th scope="col">Preço</th>
+      <th scope="col">Disponível</th>
     </tr>
     </thead>
     <tbody>
     <%
+      // Obtém a lista de ingredientes da requisição
       List<IngredientesDTO> listaIngredientes = (List<IngredientesDTO>) request.getAttribute("listaIngredientes");
       if (listaIngredientes != null && !listaIngredientes.isEmpty()) {
         for (IngredientesDTO ingrediente : listaIngredientes) {
@@ -60,43 +52,23 @@
             disponivel: <%= ingrediente.isDisponivel() %>
             })">
       <td><%= ingrediente.getNome() %></td>
+      <td><%= ingrediente.getDescricao() %></td>
+      <td><%= ingrediente.getCategoria() %></td>
+      <td><%= ingrediente.getQuantidade() %></td>
+      <td><%= ingrediente.getGramas() %></td>
+      <td><%= ingrediente.getPreco() %></td>
+      <td><%= ingrediente.isDisponivel() ? "Sim" : "Não" %></td>
     </tr>
     <%
       }
     } else {
     %>
-    <tr><td colspan="1">Nenhum ingrediente encontrado.</td></tr>
+    <tr>
+      <td colspan="8">Nenhum ingrediente encontrado.</td>
+    </tr>
     <% } %>
     </tbody>
   </table>
-
-  <!-- Paginação -->
-  <nav aria-label="Page navigation">
-    <ul class="pagination">
-      <%
-        int currentPage = (int) request.getAttribute("currentPage");
-        int totalPages = (int) request.getAttribute("totalPages");
-
-        if (currentPage > 1) {
-      %>
-      <li class="page-item">
-        <a class="page-link" href="?page=<%= currentPage - 1 %>">Anterior</a>
-      </li>
-      <% } %>
-
-      <% for (int i = 1; i <= totalPages; i++) { %>
-      <li class="page-item <%= i == currentPage ? "active" : "" %>">
-        <a class="page-link" href="?page=<%= i %>"><%= i %></a>
-      </li>
-      <% } %>
-
-      <% if (currentPage < totalPages) { %>
-      <li class="page-item">
-        <a class="page-link" href="?page=<%= currentPage + 1 %>">Próxima</a>
-      </li>
-      <% } %>
-    </ul>
-  </nav>
 
 </main>
 
@@ -124,7 +96,7 @@
   </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script>
   function openIngredientModal(ingrediente) {
     document.getElementById("modalNome").textContent = ingrediente.nome;
