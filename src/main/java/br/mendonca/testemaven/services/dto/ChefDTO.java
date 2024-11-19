@@ -10,14 +10,6 @@ public class ChefDTO {
     private Boolean ativo;
     private Boolean visivel;
 
-    public Boolean getVisivel() {
-        return visivel;
-    }
-
-    public void setVisivel(Boolean visivel) {
-        this.visivel = visivel;
-    }
-
     public Integer getIdade() {
         return idade;
     }
@@ -36,10 +28,19 @@ public class ChefDTO {
     public void setAtivo(Boolean ativo) {
         this.ativo = ativo;
     }
+    public Boolean getVisivel() {
+        return visivel;
+    }
+
+    public void setVisivel(Boolean visivel) {
+        this.visivel = visivel;
+    }
+
     public static ChefDTO chefMapper(Chef chef) {
         ChefDTO dto = new ChefDTO();
         dto.setNome(chef.getNome());
         dto.setIdade(chef.getIdade());
+        dto.setAtivo(chef.getAtivo());
         dto.setVisivel(chef.getVisivel());
 
         return dto;

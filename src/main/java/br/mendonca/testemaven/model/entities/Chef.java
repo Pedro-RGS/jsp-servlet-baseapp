@@ -6,7 +6,7 @@ public class Chef {
     private String nome;
     private Integer idade;
     private Boolean ativo;
-    private Boolean visivel;
+    private Boolean visivel = true;
 
     public String getUuid() {
         return uuid;
