@@ -86,14 +86,10 @@ Demandas:
 - O Usuário através de um item de menu pode listar os "ocultos"
 - Preencher com a Regra de Negócio escolhida a página About, entre 2 e 5 (escolhi 2)
 
-- Pedro Ricardo Gomes de Souza
-Demandas:
-  - Paginação para listar apenas 3 itens que não foram excluídos e que foram excluídos com botões para avançar e voltar nas páginas
-  - 
-
 
 - Pedro Ricardo Gomes de Souza
- Demandas:
+ 
+- Demandas:
   - Paginação para listar apenas 3 itens que não foram excluídos e que foram excluídos com botões para avançar e voltar nas páginas
   - O usuário pode ver as informações da entidade ao clicar no nome dela
 
