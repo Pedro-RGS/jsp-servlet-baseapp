@@ -15,7 +15,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.List;
 
-@WebServlet("/dashboard/ocultos/chefs")
+@WebServlet("/dashboard/ocults")
 public class ListOcultsChefsServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
