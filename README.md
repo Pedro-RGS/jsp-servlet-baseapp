@@ -78,9 +78,9 @@
 
 - Paula Beatriz Lucas Oliveira
 Demandas:
- - o usuário instala as novas tabelas do banco com 7 indivíduos pelo endpoint install;  
- - o usuário instala as novas tabelas do banco com 7 indivíduos pelo endpoint install; 
- - o usuário através de um item de menu pode listar os "ocultos";
+  - o usuário instala as novas tabelas do banco com 7 indivíduos pelo endpoint install;  
+  - o usuário instala as novas tabelas do banco com 7 indivíduos pelo endpoint install; 
+  - o usuário através de um item de menu pode listar os "ocultos";
 
 
 - Murilo Gonçalves de Lucena 
