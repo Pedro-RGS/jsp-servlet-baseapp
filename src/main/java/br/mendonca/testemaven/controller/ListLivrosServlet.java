@@ -27,10 +27,16 @@ public class ListLivrosServlet extends HttpServlet {
 
         try {
             LivroService service = new LivroService();
-            List<LivroDeReceitasDTO> lista = service.listAllLivros();
 
-            // Anexa � requisi��o um objeto ArrayList e despacha a requisi��o para uma JSP.
+            int pagina = 1;
+            if (request.getParameter("page") != null) {
+                pagina = Integer.parseInt(request.getParameter("page"));
+            }
+
+            List<LivroDeReceitasDTO> lista = service.listAllLivros(pagina);
+
             request.setAttribute("lista", lista);
+            request.setAttribute("currentPage", pagina);
             request.getRequestDispatcher("list-livrosReceita.jsp").forward(request, response);
         } catch (Exception e) {
             // Escreve as mensagens de Exception em uma p�gina de resposta.

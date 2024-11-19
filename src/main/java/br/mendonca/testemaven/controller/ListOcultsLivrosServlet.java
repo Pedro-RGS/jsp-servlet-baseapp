@@ -22,9 +22,18 @@ public class ListOcultsLivrosServlet extends HttpServlet {
         PrintWriter page = response.getWriter();
 
         try {
-            LivroService service = new LivroService();
-            List<LivroDeReceitasDTO> lista = service.listLivrosOcultos();
 
+            LivroService service = new LivroService();
+
+            int pagina = 1;
+            if (request.getParameter("page") != null) {
+                pagina = Integer.parseInt(request.getParameter("page"));
+            }
+
+            List<LivroDeReceitasDTO> lista = service.listLivrosOcultos(pagina);
+
+            request.setAttribute("lista", lista);
+            request.setAttribute("currentPage", pagina);
             request.setAttribute("lista", lista);
             request.getRequestDispatcher("list-livrosOcultos.jsp").forward(request, response);
         }
