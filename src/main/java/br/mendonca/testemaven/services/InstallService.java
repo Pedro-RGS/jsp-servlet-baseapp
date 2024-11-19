@@ -37,6 +37,10 @@ public class InstallService {
 		statement("DROP TABLE IF EXISTS ingredientes");
 	}
 
+	public void deleteSeguidoresTable() throws SQLException, ClassNotFoundException {
+		statement("DROP TABLE IF EXISTS seguidores");
+	}
+
 	public void createUserTable() throws ClassNotFoundException, SQLException {
 		statement("CREATE TABLE users ("
 				+ "    uuid UUID DEFAULT gen_random_uuid() PRIMARY KEY,"
@@ -107,6 +111,15 @@ public class InstallService {
 				+ "('Ingrediente5', 'Descrição5', 'Categoria5', 1, 1, 1, true, false),"
 				+ "('Ingrediente6', 'Descrição6', 'Categoria6', 1, 1, 1, true, false),"
 				+ "('Ingrediente7', 'Descrição7', 'Categoria7', 1, 1, 1, true, false);"
+		);
+	}
+
+	public void createSeguidoresTable() throws ClassNotFoundException, SQLException{
+		statement("CREATE TABLE seguidores (" +
+				"    user_id UUID REFERENCES users(uuid)," +
+				"    followed_id UUID REFERENCES users(uuid)," +
+				"    PRIMARY KEY (user_id, followed_id)" +
+				");"
 		);
 	}
 }
