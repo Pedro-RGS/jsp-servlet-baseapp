@@ -75,6 +75,10 @@
     </table>
 
 
+    <form action="/dashboard/ocults" method="get">
+        <button class="btn btn-success" type="submit">Ver Chefs Ocultos</button>
+    </form>
+
 </main>
 
 
