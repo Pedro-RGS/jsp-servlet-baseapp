@@ -51,4 +51,9 @@ public class ChefService {
 
         return resp;
     }
+
+    public void delete(String nome, int idade) throws ClassNotFoundException, SQLException{
+        ChefDAO dao = new ChefDAO();
+        dao.delete(nome, idade);
+    }
 }

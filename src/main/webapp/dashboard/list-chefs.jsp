@@ -1,10 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.List"%>
 <%@ page import="br.mendonca.testemaven.services.dto.ChefDTO" %>
-<%@ page import="br.mendonca.testemaven.model.entities.Chef" %>
 
 <% if (session.getAttribute("user") != null && request.getAttribute("lista") != null) { %>
-
 <!doctype html>
 <html lang="pt-br" data-bs-theme="dark">
 <head>
@@ -39,23 +37,21 @@
                     <li class="nav-item"><a class="nav-link" href="/dashboard/about.jsp">About</a></li>
                 </ul>
                 <span class="navbar-text">
-						<a class="btn btn-success" href="/auth/logoff">Logoff</a>
-					</span>
+                    <a class="btn btn-success" href="/auth/logoff">Logoff</a>
+                </span>
             </div>
         </div>
     </nav>
-
-
 
     <h1 class="h3 mb-3 fw-normal">Chefs</h1>
     <table class="table">
         <thead>
         <tr>
-            <th scope="col"></th>
+            <th scope="col">Editar</th>
             <th scope="col">Nome</th>
             <th scope="col">Idade</th>
             <th scope="col">Ativo</th>
-            <th scope="col"></th>
+            <th scope="col">Apagar</th>
         </tr>
         </thead>
         <tbody>
@@ -65,15 +61,25 @@
         %>
         <tr>
             <td>Editar</td>
-            <td><%= chef.getNome() %></td>
+            <td>
+                <a href="#" onclick="openChefModal('<%= chef.getNome() %>', '<%= chef.getIdade() %>', '<%= chef.getAtivo() %>')">
+                    <%= chef.getNome() %>
+                </a>
+            </td>
             <td><%= chef.getIdade() %></td>
-            <td><%= chef.getAtivo() %></td>
-            <td>Apagar</td>
+            <td><%= chef.getAtivo() ? "Sim" : "Não" %></td>
+            <td>
+                <form action="/dashboard/chefs" method="post">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="hidden" name="nome" value="<%= chef.getNome() %>">
+                    <input type="hidden" name="idade" value="<%= chef.getIdade() %>">
+                    <button class="btn btn-danger" type="submit">Apagar</button>
+                </form>
+            </td>
         </tr>
         <% } %>
         </tbody>
     </table>
-
 
     <form action="/dashboard/ocults" method="get">
         <button class="btn btn-success" type="submit">Ver Chefs Ocultos</button>
@@ -81,10 +87,17 @@
 
 </main>
 
-
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script>
+    function openChefModal(nome, idade, ativo) {
+        document.getElementById("modalNome").textContent = nome;
+        document.getElementById("modalIdade").textContent = idade;
+        document.getElementById("modalAtivo").textContent = ativo === "true" ? "Sim" : "Não";
+
+        var modal = new bootstrap.Modal(document.getElementById("ChefModal"));
+        modal.show();
+    }
+</script>
 </body>
 </html>
-
 <% } %>

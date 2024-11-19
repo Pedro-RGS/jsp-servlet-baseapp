@@ -126,4 +126,16 @@ public class ChefDAO {
 
         return lista;
     }
+
+    public void delete(String nome, int idade) throws ClassNotFoundException, SQLException{
+        Connection conn = ConnectionPostgres.getConexao();
+        conn.setAutoCommit(true);
+
+        // Apesar de qualquer SQL funcionar com Statement, a abordagem de usar Prepared Statement evita SQL Injection.
+        PreparedStatement ps = conn.prepareStatement("UPDATE chef SET visivel = false WHERE nome = ? AND idade = ?");
+        ps.setString(1, nome);
+        ps.setInt(2, idade);
+
+        int rs = ps.executeUpdate();
+    }
 }

@@ -46,22 +46,61 @@ public class ListChefsServlet extends HttpServlet {
     }
 
 
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         PrintWriter page = response.getWriter();
 
         try {
-            // A programa��o do servlet deve ser colocada neste bloco try.
-            // Apague o conte�do deste bloco try e escreva seu c�digo.
-            String parametro = request.getParameter("nomeparametro");
+            // Recupera os parâmetros enviados pelo formulário
+            String nome = request.getParameter("nome");
+            String idadeParam = request.getParameter("idade");
 
-            page.println("Parametro: " + parametro);
-            page.close();
+            if (nome == null || idadeParam == null) {
+                page.println("Parâmetro nome ou idade não foi enviado!");
+                return;
+            }
 
+            int idade = Integer.parseInt(idadeParam);
 
+            // Chama o serviço para deletar
+            ChefService service = new ChefService();
+            service.delete(nome, idade);
+
+            // Redireciona de volta à página de chefs
+            response.sendRedirect(request.getContextPath() + "/dashboard/chefs");
+        } catch (NumberFormatException e) {
+            page.println("<html lang='pt-br'><head><title>Erro</title></head><body>");
+            page.println("<h1>Erro: Idade inválida</h1>");
+            page.println("</body></html>");
         } catch (Exception e) {
-            // Escreve as mensagens de Exception em uma p�gina de resposta.
-            // N�o apagar este bloco.
+            StringWriter sw = new StringWriter();
+            PrintWriter pw = new PrintWriter(sw);
+            e.printStackTrace(pw);
+
+            page.println("<html lang='pt-br'><head><title>Error</title></head><body>");
+            page.println("<h1>Error</h1>");
+            page.println("<code>" + sw.toString() + "</code>");
+            page.println("</body></html>");
+        } finally {
+
+        }
+    }
+
+
+    protected void delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html");
+        PrintWriter page = response.getWriter();
+
+        String nome = request.getParameter("nome");
+        int idade = Integer.parseInt(request.getParameter("idade"));
+
+        try {
+            ChefService service = new ChefService();
+            service.delete(nome, idade);
+
+            response.sendRedirect(request.getContextPath() + "/dashboard/chefs");
+        } catch (Exception e) {
             StringWriter sw = new StringWriter();
             PrintWriter pw = new PrintWriter(sw);
             e.printStackTrace(pw);
@@ -74,7 +113,7 @@ public class ListChefsServlet extends HttpServlet {
             page.println("</body></html>");
             page.close();
         } finally {
-
+            page.close();
         }
     }
 }
