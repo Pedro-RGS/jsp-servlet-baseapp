@@ -2,6 +2,7 @@ package br.mendonca.testemaven.dao;
 
 
 import br.mendonca.testemaven.model.entities.Chef;
+import br.mendonca.testemaven.model.entities.LivroDeReceitas;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -29,6 +30,31 @@ public class ChefDAO {
 
         Statement st = conn.createStatement();
         ResultSet rs = st.executeQuery("SELECT * FROM chef WHERE visivel = true");
+
+        while (rs.next()) {
+            Chef chef = new Chef();
+            chef.setUuid(rs.getString("uuid"));
+            chef.setNome(rs.getString("nome"));
+            chef.setIdade(rs.getInt("idade"));
+            chef.setAtivo(rs.getBoolean("ativo"));
+
+            lista.add(chef);
+        }
+
+
+        rs.close();
+
+        return lista;
+    }
+
+    public List<Chef> listChefssOcultos() throws ClassNotFoundException, SQLException {
+        ArrayList<Chef> lista = new ArrayList<>();
+
+        Connection conn = ConnectionPostgres.getConexao();
+        conn.setAutoCommit(true);
+
+        Statement st = conn.createStatement();
+        ResultSet rs = st.executeQuery("SELECT * FROM chef WHERE visivel = false");
 
         while (rs.next()) {
             Chef chef = new Chef();
