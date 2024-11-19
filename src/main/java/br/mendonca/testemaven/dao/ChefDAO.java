@@ -28,7 +28,7 @@ public class ChefDAO {
         conn.setAutoCommit(true);
 
         Statement st = conn.createStatement();
-        ResultSet rs = st.executeQuery("SELECT * FROM chef");
+        ResultSet rs = st.executeQuery("SELECT * FROM chef WHERE visivel = true");
 
         while (rs.next()) {
             Chef chef = new Chef();
