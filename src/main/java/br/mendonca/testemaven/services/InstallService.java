@@ -33,6 +33,10 @@ public class InstallService {
 		statement("DROP TABLE IF EXISTS livroDeReceitas");
 	}
 
+	public void deleteIngredienteTable() throws SQLException, ClassNotFoundException {
+		statement("DROP TABLE IF EXISTS ingredientes");
+	}
+
 	public void createUserTable() throws ClassNotFoundException, SQLException {
 		statement("CREATE TABLE users ("
 				+ "    uuid UUID DEFAULT gen_random_uuid() PRIMARY KEY,"
@@ -78,17 +82,19 @@ public class InstallService {
 				+ "    quantidade INT NOT NULL,"
 				+ "    gramas INT NOT NULL,"
 				+ "    preco INT NOT NULL,"
-				+ "    disponivel BOOLEAN NOT NULL"
+				+ "    disponivel BOOLEAN NOT NULL,"
+				+ "    oculto BOOLEAN DEFAULT FALSE" // Nova coluna com valor padrão como FALSE
 				+ ");");
 
-		statement("INSERT INTO ingredientes (nome, descricao, categoria, quantidade, gramas, preco, disponivel) VALUES "
-				+ "('Ingrediente1', 'Descrição1', 'Categoria1', 1, 1, 1, true),"
-				+ "('Ingrediente2', 'Descrição2', 'Categoria2', 1, 1, 1, true),"
-				+ "('Ingrediente3', 'Descrição3', 'Categoria3', 1, 1, 1, true),"
-				+ "('Ingrediente4', 'Descrição4', 'Categoria4', 1, 1, 1, true),"
-				+ "('Ingrediente5', 'Descrição5', 'Categoria5', 1, 1, 1, true),"
-				+ "('Ingrediente6', 'Descrição6', 'Categoria6', 1, 1, 1, true),"
-				+ "('Ingrediente7', 'Descrição7', 'Categoria7', 1, 1, 1, true);"
+		// Inserindo dados com a nova estrutura
+		statement("INSERT INTO ingredientes (nome, descricao, categoria, quantidade, gramas, preco, disponivel, oculto) VALUES "
+				+ "('Ingrediente1', 'Descrição1', 'Categoria1', 1, 1, 1, true, false),"
+				+ "('Ingrediente2', 'Descrição2', 'Categoria2', 1, 1, 1, true, false),"
+				+ "('Ingrediente3', 'Descrição3', 'Categoria3', 1, 1, 1, true, false),"
+				+ "('Ingrediente4', 'Descrição4', 'Categoria4', 1, 1, 1, true, false),"
+				+ "('Ingrediente5', 'Descrição5', 'Categoria5', 1, 1, 1, true, false),"
+				+ "('Ingrediente6', 'Descrição6', 'Categoria6', 1, 1, 1, true, false),"
+				+ "('Ingrediente7', 'Descrição7', 'Categoria7', 1, 1, 1, true, false);"
 		);
 	}
 }
