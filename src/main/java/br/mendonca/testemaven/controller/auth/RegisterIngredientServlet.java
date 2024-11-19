@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import br.mendonca.testemaven.dao.IngredientesDAO;
@@ -21,16 +20,33 @@ import jakarta.servlet.http.HttpServletResponse;
 public class RegisterIngredientServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private final IngredientesService ingredientesService = new IngredientesService();
+    private static final int ITEMS_PER_PAGE = 3; // Definindo 3 itens por página
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Redireciona para o formulário de registro de ingredientes
         try {
-            List<IngredientesDTO> lista = ingredientesService.listarTodosIngredientes();
+            int page = 1; // Página padrão
+            String pageParam = request.getParameter("page");
+
+            // Verifica se a página foi especificada na requisição
+            if (pageParam != null) {
+                try {
+                    page = Integer.parseInt(pageParam);
+                } catch (NumberFormatException e) {
+                    page = 1; // Caso o valor seja inválido, volta para a página 1
+                }
+            }
+
+            // Obtém a lista de ingredientes com paginação
+            List<IngredientesDTO> lista = ingredientesService.listarIngredientesPaginado(page, ITEMS_PER_PAGE);
+            int totalIngredientes = ingredientesService.contarIngredientes();
+            int totalPages = (int) Math.ceil((double) totalIngredientes / ITEMS_PER_PAGE);
+
             request.setAttribute("listaIngredientes", lista);
+            request.setAttribute("currentPage", page);
+            request.setAttribute("totalPages", totalPages);
             request.getRequestDispatcher("/dashboard/list-ingredientes.jsp").forward(request, response);
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (SQLException e) {
+
+        } catch (ClassNotFoundException | SQLException e) {
             throw new RuntimeException(e);
         }
     }

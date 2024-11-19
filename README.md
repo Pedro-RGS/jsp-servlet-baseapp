@@ -48,10 +48,12 @@
   - O Usuário consegue listar todas as entidades cadastradas através do item de menu
   - O Usuário consegue exibir as propriedades de uma entidade numa lista de entidade
 
+- Murilo Gonçalves de Lucena
+  Demandas:
+  - O usuário instala as novas tabelas do banco com 7 indivíduos pelo endpoint "install"
+  - O Usuário visualiza todos os indivíduos listados com paginação de 3 indivíduos 
 
-### Semana 3
 - Pedro Ricardo Gomes de Souza
-
 Demandas:
   - O usuário consegue inserir novas tabelas no bd
   - O usuário consegue inserir uma ou mais entidades de forma permanente
@@ -59,11 +61,12 @@ Demandas:
   - O usuário instala as novas tabelas com 7 entidades já criadas
   - O usuário pode ver os itens ocultos através de um item de menu
   - O usuário pode deletar um indivíduo da listagem, mas ele não é deletado de verdade
+  - Atualizar o README com as demandas finalizadas dessa semana
+  
 
 ### Semana 4
 - Paula Beatriz Lucas Oliveira
-
-- Demandas:
+Demandas:
 - o usuário instala as novas tabelas do banco com 7 indivíduos pelo endpoint install;  
 
 ### Link da página do cliente
