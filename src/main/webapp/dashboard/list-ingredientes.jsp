@@ -15,7 +15,7 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Dashboard</a>
+    <a class="navbar-brand" href="#">Gerência de Configuração</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -23,6 +23,8 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item"><a class="nav-link" href="/dashboard/dashboard.jsp">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="/dashboard/users">Users</a></li>
+        <li class="nav-item"><a class="nav-link" href="/dashboard/chefs">Listar Chefs</a></li>
+        <li class="nav-item"><a class="nav-link" href="/register/chef">Cadastrar Chefs</a></li>
         <li class="nav-item"><a class="nav-link" href="/dashboard/livros">Listar Livros</a></li>
         <li class="nav-item"><a class="nav-link" href="/register/livro">Cadastrar Livros</a></li>
         <li class="nav-item"><a class="nav-link" href="/ingredientes/register">Ingredientes</a></li>
@@ -35,7 +37,10 @@
 <!-- Main Content -->
 <main class="container mt-4">
   <h1 class="h3 mb-3">Ingredientes</h1>
-  <a href="/dashboard/register-ingrediente.jsp" class="btn btn-primary mb-3">Novo Ingrediente</a>
+  <a href="/form-register-ingrediente.jsp" class="btn btn-primary mb-3">Novo Ingrediente</a>
+  <form action="/ingredientes/ocultar" method="get">
+    <button class="btn btn-primary mb-3" type="submit">Lixeira</button>
+  </form>
 
   <!-- Tabela de ingredientes -->
   <table class="table">
@@ -60,6 +65,12 @@
             disponivel: <%= ingrediente.isDisponivel() %>
             })">
       <td><%= ingrediente.getNome() %></td>
+      <td>
+        <form action="/ingredientes/ocultar" method="post">
+          <input type="hidden" name="uidIngrediente" value="<%= ingrediente.getNome() %>">
+          <button type="submit" class="btn btn-danger">Excluir</button>
+        </form>
+      </td>
     </tr>
     <%
       }

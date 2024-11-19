@@ -31,10 +31,11 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item"><a class="nav-link" href="/dashboard/dashboard.jsp">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="/dashboard/users">Users</a></li>
-          <li class="nav-item"><a class="nav-link" href="/dashboard/livros">Listar Livros</a></li>
           <li class="nav-item"><a class="nav-link" href="/dashboard/chefs">Listar Chefs</a></li>
           <li class="nav-item"><a class="nav-link" href="/register/chef">Cadastrar Chefs</a></li>
+          <li class="nav-item"><a class="nav-link" href="/dashboard/livros">Listar Livros</a></li>
           <li class="nav-item"><a class="nav-link" href="/register/livro">Cadastrar Livros</a></li>
+          <li class="nav-item"><a class="nav-link" href="/ingredientes/register">Ingredientes</a></li>
           <li class="nav-item"><a class="nav-link" href="/dashboard/about.jsp">About</a></li>
         </ul>
         <span class="navbar-text">
@@ -70,7 +71,7 @@
       <td>
         <form action="/dashboard/livros" method="post">
             <input type="hidden" name="_method" value="DELETE">
-            <input type="hidden" name="titulo" value="<%=livro.getTitulo()%>">
+            <input type="hidden" name="titulo" value="<%= livro.getTitulo() %>">
             <input type="hidden" name="paginas" value="<%= livro.getNumeroDePaginas() %>">
             <button class="btn btn-success" type="submit">Apagar</button>
         </form>
