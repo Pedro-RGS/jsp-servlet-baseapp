@@ -98,7 +98,7 @@ public class IngredientesDAO {
 
     public List<Ingredientes> listarIngredientesOcultos() throws ClassNotFoundException, SQLException {
         ArrayList<Ingredientes> lista = new ArrayList<>();
-        String sql = "SELECT * FROM ingredientes WHERE oculto = true";
+        String sql = "SELECT * FROM ingredientes WHERE oculto = TRUE";
 
         try (Connection conn = ConnectionPostgres.getConexao();
              PreparedStatement ps = conn.prepareStatement(sql);
@@ -125,7 +125,7 @@ public class IngredientesDAO {
         Connection conn = ConnectionPostgres.getConexao();
         conn.setAutoCommit(true);
 
-        PreparedStatement ps = conn.prepareStatement("UPDATE ingredientes SET oculto = true WHERE nome = ?");
+        PreparedStatement ps = conn.prepareStatement("UPDATE ingredientes SET oculto = TRUE WHERE nome = ?");
         ps.setString(1, nome);
 
         int rs = ps.executeUpdate();

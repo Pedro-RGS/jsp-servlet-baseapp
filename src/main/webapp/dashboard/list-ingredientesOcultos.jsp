@@ -2,8 +2,6 @@
 <%@ page import="java.util.List"%>
 <%@ page import="br.mendonca.testemaven.services.dto.IngredientesDTO" %>
 
-<% if (request.getAttribute("listaOcultos") != null) { %>
-
 <!doctype html>
 <html lang="pt-br" data-bs-theme="dark">
 <head>
@@ -29,9 +27,12 @@
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item"><a class="nav-link" href="/dashboard/dashboard.jsp">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="/dashboard/ingredients">Ingredientes</a></li>
-          <li class="nav-item"><a class="nav-link" href="/ingredientes/register">Cadastrar Ingrediente</a></li>
-          <li class="nav-item"><a class="nav-link" href="/ingredientes/ocultos.jsp">Ingredientes Ocultos</a></li>
+          <li class="nav-item"><a class="nav-link" href="/dashboard/users">Users</a></li>
+          <li class="nav-item"><a class="nav-link" href="/dashboard/chefs">Listar Chefs</a></li>
+          <li class="nav-item"><a class="nav-link" href="/register/chef">Cadastrar Chefs</a></li>
+          <li class="nav-item"><a class="nav-link" href="/dashboard/livros">Listar Livros</a></li>
+          <li class="nav-item"><a class="nav-link" href="/register/livro">Cadastrar Livros</a></li>
+          <li class="nav-item"><a class="nav-link" href="/ingredientes/register">Ingredientes</a></li>
           <li class="nav-item"><a class="nav-link" href="/dashboard/about.jsp">About</a></li>
         </ul>
         <span class="navbar-text">
@@ -42,6 +43,17 @@
   </nav>
 
   <h1 class="h3 mb-3 fw-normal">Ingredientes Ocultos</h1>
+
+  <%
+    // Recupera a lista de ingredientes ocultos
+    List<IngredientesDTO> listaOcultos = (List<IngredientesDTO>) request.getAttribute("listaOcultos");
+
+    if (listaOcultos == null || listaOcultos.isEmpty()) {
+  %>
+  <p class="alert alert-warning">Nenhum ingrediente oculto encontrado.</p>
+  <%
+  } else {
+  %>
   <table class="table">
     <thead>
     <tr>
@@ -56,7 +68,6 @@
     </thead>
     <tbody>
     <%
-      List<IngredientesDTO> listaOcultos = (List<IngredientesDTO>) request.getAttribute("listaOcultos");
       for (IngredientesDTO ingrediente : listaOcultos) {
     %>
     <tr>
@@ -70,14 +81,17 @@
         <a href="/ingredientes/restore?id=<%= ingrediente.getId() %>" class="btn btn-warning btn-sm">Restaurar</a>
       </td>
     </tr>
-    <% } %>
+    <%
+      }
+    %>
     </tbody>
   </table>
+  <%
+    }
+  %>
 
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
-
-<% } %>

@@ -49,8 +49,6 @@
   - O Usuário consegue exibir as propriedades de uma entidade numa lista de entidade
 
 
-### Semana 3
-
 - Murilo Gonçalves de Lucena
   Demandas:
   - O usuário instala as novas tabelas do banco com 7 indivíduos pelo endpoint "install"
@@ -59,8 +57,7 @@
 
 
 - Pedro Ricardo Gomes de Souza
-
-Demandas:
+ Demandas:
   - O usuário consegue inserir novas tabelas no bd
   - O usuário consegue inserir uma ou mais entidades de forma permanente
   - Preencher about.jsp
@@ -75,10 +72,15 @@ Demandas:
 Demandas:
 - o usuário instala as novas tabelas do banco com 7 indivíduos pelo endpoint install;  
 
+- Murilo Gonçalves de Lucena 
+Demandas:
+- O Usuário pode "deletar" um indivíduo cadastrado da listagem, mas o indivíduo não é apagado do banco
+- O Usuário através de um item de menu pode listar os "ocultos"
+- 
+
 
 - Pedro Ricardo Gomes de Souza
-
-Demandas:
+ Demandas:
   - Paginação para listar apenas 3 itens que não foram excluídos e que foram excluídos com botões para avançar e voltar nas páginas
   - 
 
