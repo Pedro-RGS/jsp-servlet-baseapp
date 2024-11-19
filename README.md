@@ -59,7 +59,12 @@ Demandas:
   - O usuário instala as novas tabelas com 7 entidades já criadas
   - O usuário pode ver os itens ocultos através de um item de menu
   - O usuário pode deletar um indivíduo da listagem, mas ele não é deletado de verdade
-  
+
+### Semana 4
+- Paula Beatriz Lucas Oliveira
+
+- Demandas:
+- o usuário instala as novas tabelas do banco com 7 indivíduos pelo endpoint install;  
 
 ### Link da página do cliente
 https://jsp-servlet-baseapp-pl1m.onrender.com
