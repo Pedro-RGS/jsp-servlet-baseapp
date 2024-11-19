@@ -80,7 +80,7 @@ Demandas:
 
 Demandas:
   - Paginação para listar apenas 3 itens que não foram excluídos e que foram excluídos com botões para avançar e voltar nas páginas
-  - 
+  - O usuário pode ver as informações da entidade ao clicar no nome dela
 
 ### Link da página do cliente
 https://jsp-servlet-baseapp-pl1m.onrender.com

@@ -26,8 +26,6 @@
     <tr>
       <th scope="col"></th>
       <th scope="col">Título</th>
-      <th scope="col">Número de Páginas</th>
-      <th scope="col">É bom?</th>
       <th scope="col"></th>
     </tr>
     </thead>
@@ -38,9 +36,11 @@
     %>
     <tr>
       <td>Editar</td>
-      <td><%= livro.getTitulo() %></td>
-      <td><%= livro.getNumeroDePaginas() %></td>
-      <td><%= livro.isEhBom() %></td>
+      <td>
+        <a href="#" onclick="openLivroModal('<%= livro.getTitulo() %>', '<%= livro.getNumeroDePaginas() %>', '<%= livro.isEhBom() %>')">
+          <%= livro.getTitulo() %>
+        </a>
+      </td>
       <td>
         <form action="/dashboard/livros" method="post">
             <input type="hidden" name="_method" value="DELETE">
@@ -76,9 +76,36 @@
 
 </main>
 
-
+<div class="modal fade" id="livroModal" tabindex="-1" aria-labelledby="livroModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="livroModalLabel">Detalhes do livro</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p><strong>Título:</strong> <span id="modalTitulo"></span></p>
+        <p><strong>Número de páginas:</strong> <span id="modalNumero"></span></p>
+        <p><strong>É bom?:</strong> <span id="modalEhBom"></span></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script>
+  function openLivroModal(titulo, numeroDePaginas, ehBom) {
+    document.getElementById("modalTitulo").textContent = titulo;
+    document.getElementById("modalNumero").textContent = numeroDePaginas;
+    document.getElementById("modalEhBom").textContent = ehBom === "true" ? "Sim" : "Não";
+
+    var modal = new bootstrap.Modal(document.getElementById("livroModal"));
+    modal.show();
+  }
+</script>
 </body>
 </html>
 
