@@ -38,9 +38,7 @@
 <main class="container mt-4">
   <h1 class="h3 mb-3">Ingredientes</h1>
   <a href="/form-register-ingrediente.jsp" class="btn btn-primary mb-3">Novo Ingrediente</a>
-  <form action="/ingredientes/ocultar" method="get">
-    <button class="btn btn-primary mb-3" type="submit">Lixeira</button>
-  </form>
+  <a href="/ingredientes/ocultar" class="btn btn-primary mb-3">Lixeira</a>
 
   <!-- Tabela de ingredientes -->
   <table class="table">

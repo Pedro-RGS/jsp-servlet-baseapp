@@ -36,14 +36,14 @@ if (session.getAttribute("user") != null) {
 				</tr>
 			</thead>
 				<tr>
-					<td scope="col">Ewerton Mendonça</th>
-					<td scope="col">Users</th>
-					<td scope="col">Autenticação</th>
+					<th scope="col">Ewerton Mendonça</th>
+					<th scope="col">Users</th>
+					<th scope="col">Autenticação</th>
 				</tr>
 				<tr>
 					<th scope="col">Murilo Lucena</th>
 					<th scope="col">Ingredientes</th>
-					<td scope="col">Registrar e Listar Ingredientes</td>
+					<td scope="col">O usuário pode, na listagem de usuários, selecionar um usuário para seguir e através do endpoint 'seguindo' visualizar quem ele segue e deixar de seguir</td>
 				</tr>
 				<tr>
 					<td scope="col">Paula Beatriz Lucas Oliveira</td>
@@ -53,7 +53,7 @@ if (session.getAttribute("user") != null) {
 				<tr>
 					<td scope="col">Pedro Ricardo Gomes de Souza</td>
 					<td scope="col">Livro de Receitas</td>
-					<td scope="col">O usuário pode, na listagem de usuários, selecionar um usuário para seguir e através do endpoint 'seguindo' visualizar quem ele segue e deixar de seguir</td>
+					<td scope="col">Coloque aqui a sua regra de negócio</td>
 				</tr>
 			<tbody>
 			</tbody>

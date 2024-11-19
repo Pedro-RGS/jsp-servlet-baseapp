@@ -19,16 +19,24 @@ public class ListIngredientesOcultosServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
-        PrintWriter page = response.getWriter();
 
         try {
+            // Instancia o serviço de ingredientes
             IngredientesService ingredientesService = new IngredientesService();
-            List<IngredientesDTO> lista = ingredientesService.listarIngredientesOcultos();
 
-            request.setAttribute("lista", lista);
-            request.getRequestDispatcher("/webapp/ingredientes/list-ingredientesOcultos.jsp").forward(request, response);
-        }
-        catch (Exception e) {
+            // Obtém a lista de ingredientes ocultos
+            List<IngredientesDTO> ingredientesOcultos = ingredientesService.listarIngredientesOcultos();
+
+            // Define a lista como atributo da requisição
+            request.setAttribute("listaOcultos", ingredientesOcultos);
+
+            // Encaminha a requisição para o JSP
+            request.getRequestDispatcher("/dashboard/list-ingredientesOcultos.jsp").forward(request, response);
+
+        } catch (Exception e) {
+            // Em caso de erro, exibe a stack trace na página
+            response.setContentType("text/html");
+            PrintWriter page = response.getWriter();
             StringWriter sw = new StringWriter();
             PrintWriter pw = new PrintWriter(sw);
             e.printStackTrace(pw);
@@ -38,36 +46,38 @@ public class ListIngredientesOcultosServlet extends HttpServlet {
             page.println("<code>" + sw.toString() + "</code>");
             page.println("</body></html>");
             page.close();
-        } finally {
-
         }
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
-        PrintWriter page = response.getWriter();
-
-        String parametro = request.getParameter("uidIngrediente");
 
         try {
+            // Obtém o parâmetro do ingrediente a ser ocultado
+            String parametro = request.getParameter("uidIngrediente");
+
+            // Instancia o serviço de ingredientes
             IngredientesService service = new IngredientesService();
+
+            // Oculta o ingrediente
             service.excluir(parametro);
+
+            // Redireciona para a página de registro
             response.sendRedirect(request.getContextPath() + "/ingredientes/register");
 
         } catch (Exception e) {
+            // Em caso de erro, exibe a stack trace na página
+            response.setContentType("text/html");
+            PrintWriter page = response.getWriter();
             StringWriter sw = new StringWriter();
             PrintWriter pw = new PrintWriter(sw);
             e.printStackTrace(pw);
 
             page.println("<html lang='pt-br'><head><title>Error</title></head><body>");
             page.println("<h1>Error</h1>");
-            page.println("<code>");
-            page.println(sw.toString());
-            page.println("</code>");
+            page.println("<code>" + sw.toString() + "</code>");
             page.println("</body></html>");
             page.close();
-        } finally {
-
         }
     }
 }
