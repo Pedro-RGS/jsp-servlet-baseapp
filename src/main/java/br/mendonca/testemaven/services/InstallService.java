@@ -22,7 +22,7 @@ public class InstallService {
 	}
 
 	public void deleteUserTable() throws ClassNotFoundException, SQLException {
-		statement("DROP TABLE IF EXISTS users");
+		statement("DROP TABLE users CASCADE");
 	}
 
 	public void deleteChefTable() throws ClassNotFoundException, SQLException {
@@ -35,6 +35,10 @@ public class InstallService {
 
 	public void deleteIngredienteTable() throws SQLException, ClassNotFoundException {
 		statement("DROP TABLE IF EXISTS ingredientes");
+	}
+
+	public void deleteSeguidoresTable() throws SQLException, ClassNotFoundException {
+		statement("DROP TABLE IF EXISTS seguidores");
 	}
 
 	public void createUserTable() throws ClassNotFoundException, SQLException {
@@ -107,6 +111,15 @@ public class InstallService {
 				+ "('Ingrediente5', 'Descrição5', 'Categoria5', 1, 1, 1, true, false),"
 				+ "('Ingrediente6', 'Descrição6', 'Categoria6', 1, 1, 1, true, false),"
 				+ "('Ingrediente7', 'Descrição7', 'Categoria7', 1, 1, 1, true, false);"
+		);
+	}
+
+	public void createSeguidoresTable() throws ClassNotFoundException, SQLException{
+		statement("CREATE TABLE seguidores (" +
+				"    user_id UUID REFERENCES users(uuid)," +
+				"    followed_id UUID REFERENCES users(uuid)," +
+				"    PRIMARY KEY (user_id, followed_id)" +
+				");"
 		);
 	}
 }

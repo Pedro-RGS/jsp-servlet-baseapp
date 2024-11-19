@@ -82,16 +82,16 @@ Demandas:
 - o usuário através de um item de menu pode listar os "ocultos";
 - o usuário pode deletar um individuo cadastrado da listagem, mas o individuo não é apagado do banco é marcado para não visualização;
 
+
 - Murilo Gonçalves de Lucena 
 Demandas:
-- O Usuário pode "deletar" um indivíduo cadastrado da listagem, mas o indivíduo não é apagado do banco
-- O Usuário através de um item de menu pode listar os "ocultos"
-- Preencher com a Regra de Negócio escolhida a página About, entre 2 e 5 (escolhi 2)
+  - O Usuário pode "deletar" um indivíduo cadastrado da listagem, mas o indivíduo não é apagado do banco
+  - O Usuário através de um item de menu pode listar os "ocultos"
+  - Preencher com a Regra de Negócio escolhida a página About, entre 2 e 5 (escolhi 2)
 
 
 - Pedro Ricardo Gomes de Souza
- 
-- Demandas:
+ Demandas:
   - Paginação para listar apenas 3 itens que não foram excluídos e que foram excluídos com botões para avançar e voltar nas páginas
   - O usuário pode ver as informações da entidade ao clicar no nome dela
 
