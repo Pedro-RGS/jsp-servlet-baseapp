@@ -16,28 +16,7 @@
 <main class="w-100 m-auto form-container">
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/dashboard/dashboard.jsp">Gerência de Configuração</a>
-      <button class="navbar-toggler" type="button"
-              data-bs-toggle="collapse" data-bs-target="#navbarText"
-              aria-controls="navbarText" aria-expanded="false"
-              aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link" href="/dashboard/dashboard.jsp">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="/dashboard/users">Users</a></li>
-          <li class="nav-item"><a class="nav-link" href="/dashboard/list-ingredientes.jsp">Ingredientes</a></li>
-          <li class="nav-item"><a class="nav-link" href="/dashboard/about.jsp">About</a></li>
-        </ul>
-        <span class="navbar-text">
-          <a class="btn btn-success" href="/auth/logoff">Logoff</a>
-        </span>
-      </div>
-    </div>
-  </nav>
+  <jsp:include page="/cabecalho.html" />
 
   <!-- Título e botão para adicionar novo ingrediente -->
   <h1 class="h3 mb-3 fw-normal">Ingredientes</h1>
