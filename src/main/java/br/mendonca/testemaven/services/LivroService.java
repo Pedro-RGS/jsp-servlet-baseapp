@@ -21,12 +21,13 @@ public class LivroService {
         dao.register(livro);
     }
 
-    public List<LivroDeReceitasDTO> listAllLivros() throws ClassNotFoundException, SQLException {
+    public List<LivroDeReceitasDTO> listAllLivros(int page) throws ClassNotFoundException, SQLException {
+        int limit = 3;
+        int offset = (page - 1) * limit;
 
         ArrayList<LivroDeReceitasDTO> resp = new ArrayList<>();
-
         LivroDeReceitasDAO dao = new LivroDeReceitasDAO();
-        List<LivroDeReceitas> lista = dao.listAllLivros();
+        List<LivroDeReceitas> lista = dao.listAllLivros(limit, offset);
 
         for (LivroDeReceitas livro : lista) {
             resp.add(LivroDeReceitasDTO.livroMapper(livro));
@@ -34,13 +35,14 @@ public class LivroService {
 
         return resp;
     }
+    public List<LivroDeReceitasDTO> listLivrosOcultos(int page) throws ClassNotFoundException, SQLException {
 
-    public List<LivroDeReceitasDTO> listLivrosOcultos() throws ClassNotFoundException, SQLException {
+        int limit = 3;
+        int offset = (page - 1) * limit;
 
         ArrayList<LivroDeReceitasDTO> resp = new ArrayList<>();
-
         LivroDeReceitasDAO dao = new LivroDeReceitasDAO();
-        List<LivroDeReceitas> lista = dao.listLivrosOcultos();
+        List<LivroDeReceitas> lista = dao.listLivrosOcultos(limit, offset);
 
         for (LivroDeReceitas livro : lista) {
             resp.add(LivroDeReceitasDTO.livroMapper(livro));

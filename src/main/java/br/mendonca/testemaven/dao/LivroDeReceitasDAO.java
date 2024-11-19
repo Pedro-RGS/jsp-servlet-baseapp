@@ -19,14 +19,17 @@ public class LivroDeReceitasDAO {
         ps.close();
     }
 
-    public List<LivroDeReceitas> listAllLivros() throws ClassNotFoundException, SQLException {
+    public List<LivroDeReceitas> listAllLivros(int limit, int offset) throws ClassNotFoundException, SQLException {
         ArrayList<LivroDeReceitas> lista = new ArrayList<>();
 
         Connection conn = ConnectionPostgres.getConexao();
         conn.setAutoCommit(true);
 
-        Statement st = conn.createStatement();
-        ResultSet rs = st.executeQuery("SELECT * FROM livroDeReceitas WHERE ativo = true");
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM livroDeReceitas WHERE ativo = true LIMIT ? OFFSET ?");
+        ps.setInt(1, limit);
+        ps.setInt(2, offset);
+
+        ResultSet rs = ps.executeQuery();
 
         while (rs.next()) {
             LivroDeReceitas livro = new LivroDeReceitas();
@@ -34,23 +37,24 @@ public class LivroDeReceitasDAO {
             livro.setTitulo(rs.getString("title"));
             livro.setNumeroDePaginas(rs.getInt("numberOfPages"));
             livro.setEhBom(rs.getBoolean("isGood"));
-
             lista.add(livro);
         }
 
         rs.close();
-
         return lista;
     }
 
-    public List<LivroDeReceitas> listLivrosOcultos() throws ClassNotFoundException, SQLException {
+    public List<LivroDeReceitas> listLivrosOcultos(int limit, int offset) throws ClassNotFoundException, SQLException {
         ArrayList<LivroDeReceitas> lista = new ArrayList<>();
 
         Connection conn = ConnectionPostgres.getConexao();
         conn.setAutoCommit(true);
 
-        Statement st = conn.createStatement();
-        ResultSet rs = st.executeQuery("SELECT * FROM livroDeReceitas WHERE ativo = false");
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM livroDeReceitas WHERE ativo = false LIMIT ? OFFSET ?");
+        ps.setInt(1, limit);
+        ps.setInt(2, offset);
+
+        ResultSet rs = ps.executeQuery();
 
         while (rs.next()) {
             LivroDeReceitas livro = new LivroDeReceitas();
@@ -58,12 +62,10 @@ public class LivroDeReceitasDAO {
             livro.setTitulo(rs.getString("title"));
             livro.setNumeroDePaginas(rs.getInt("numberOfPages"));
             livro.setEhBom(rs.getBoolean("isGood"));
-
             lista.add(livro);
         }
 
         rs.close();
-
         return lista;
     }
 
