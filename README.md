@@ -77,6 +77,7 @@ Demandas:
 Demandas:
 - O Usuário pode "deletar" um indivíduo cadastrado da listagem, mas o indivíduo não é apagado do banco
 - O Usuário através de um item de menu pode listar os "ocultos"
+- 
 
 ### Link da página do cliente
 https://jsp-servlet-baseapp-pl1m.onrender.com
