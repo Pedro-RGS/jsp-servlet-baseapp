@@ -53,6 +53,22 @@
     <% } %>
     </tbody>
   </table>
+
+  <%
+    int currentPage = (int) request.getAttribute("currentPage");
+  %>
+
+  <div class="pagination">
+    <form action="/dashboard/livros" method="get" style="display: inline;">
+      <input type="hidden" name="page" value="<%= currentPage > 1 ? currentPage - 1 : 1 %>">
+      <button type="submit" class="btn btn-primary" <%= currentPage == 1 ? "disabled" : "" %>>Página Anterior</button>
+    </form>
+
+    <form action="/dashboard/livros" method="get" style="display: inline;">
+      <input type="hidden" name="page" value="<%= currentPage + 1 %>">
+      <button type="submit" class="btn btn-primary">Próxima Página</button>
+    </form>
+  </div>
   <form action="/dashboard/ocultos" method="get">
     <button class="btn btn-success" type="submit">Ver Livros Ocultos</button>
   </form>
