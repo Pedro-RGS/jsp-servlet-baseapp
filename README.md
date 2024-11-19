@@ -75,5 +75,12 @@ Demandas:
 Demandas:
 - o usuário instala as novas tabelas do banco com 7 indivíduos pelo endpoint install;  
 
+
+- Pedro Ricardo Gomes de Souza
+
+Demandas:
+  - Paginação para listar apenas 3 itens que não foram excluídos e que foram excluídos com botões para avançar e voltar nas páginas
+  - 
+
 ### Link da página do cliente
 https://jsp-servlet-baseapp-pl1m.onrender.com
