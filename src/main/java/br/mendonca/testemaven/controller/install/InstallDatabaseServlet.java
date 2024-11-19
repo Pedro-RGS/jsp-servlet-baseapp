@@ -49,6 +49,10 @@ public class InstallDatabaseServlet extends HttpServlet {
 			service.createIngredienteTable();
 			msg.append("<h2>Create table 'ingredientes' successful!</h2>");
 
+			service.deleteSeguidoresTable();
+			service.createSeguidoresTable();
+			msg.append("<h2>Create table 'seguidores' successful!</h2>");
+
 			page.println("<html lang='pt-br'><head><title>Teste</title></head><body>");
 			page.println(msg);
 			page.println("</body></html>");

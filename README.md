@@ -78,18 +78,20 @@
 
 - Paula Beatriz Lucas Oliveira
 Demandas:
-- o usuário instala as novas tabelas do banco com 7 indivíduos pelo endpoint install;  
+  - o usuário instala as novas tabelas do banco com 7 indivíduos pelo endpoint install;  
+
 
 - Murilo Gonçalves de Lucena 
 Demandas:
-- O Usuário pode "deletar" um indivíduo cadastrado da listagem, mas o indivíduo não é apagado do banco
-- O Usuário através de um item de menu pode listar os "ocultos"
-- Preencher com a Regra de Negócio escolhida a página About, entre 2 e 5 (escolhi 2)
+  - O Usuário pode "deletar" um indivíduo cadastrado da listagem, mas o indivíduo não é apagado do banco
+  - O Usuário através de um item de menu pode listar os "ocultos"
+  - Preencher com a Regra de Negócio escolhida a página About, entre 2 e 5 (escolhi 2)
+
 
 - Pedro Ricardo Gomes de Souza
 Demandas:
   - Paginação para listar apenas 3 itens que não foram excluídos e que foram excluídos com botões para avançar e voltar nas páginas
-  - 
+
 
 ### Link da página do cliente
 https://jsp-servlet-baseapp-pl1m.onrender.com
