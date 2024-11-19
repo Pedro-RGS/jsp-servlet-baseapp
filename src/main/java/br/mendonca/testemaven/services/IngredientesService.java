@@ -30,7 +30,7 @@ public class IngredientesService {
         List<IngredientesDTO> ingredientesDTOList = new ArrayList<>();
 
         for (Ingredientes ingrediente : listaIngredientes) {
-            ingredientesDTOList.add(IngredientesDTO.userMapper(ingrediente));
+            ingredientesDTOList.add(IngredientesDTO.ingredientesMapper(ingrediente));
         }
 
         return ingredientesDTOList;
@@ -43,5 +43,24 @@ public class IngredientesService {
 
     public int contarIngredientes() throws SQLException, ClassNotFoundException {
         return ingredientesDAO.contarTotal();
+    }
+
+    public List<IngredientesDTO> listarIngredientesOcultos() throws ClassNotFoundException, SQLException {
+
+        ArrayList<IngredientesDTO> ingredientesDTO = new ArrayList<>();
+
+        IngredientesDAO ingredientesDAO = new IngredientesDAO();
+        List<Ingredientes> lista = ingredientesDAO.listarIngredientesOcultos();
+
+        for (Ingredientes ingredientes : lista) {
+            ingredientesDTO.add(IngredientesDTO.ingredientesMapper(ingredientes));
+        }
+
+        return ingredientesDTO;
+    }
+
+    public void excluir(String nome) throws ClassNotFoundException, SQLException{
+        IngredientesDAO ingredientesDAO = new IngredientesDAO();
+        ingredientesDAO.excluir(nome);
     }
 }

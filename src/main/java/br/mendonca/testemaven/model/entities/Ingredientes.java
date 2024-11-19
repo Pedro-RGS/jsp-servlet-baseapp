@@ -9,6 +9,11 @@ public class Ingredientes {
     private int gramas;
     private int preco;
     private boolean disponivel;
+    private boolean oculto;
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getId() {
         return id;
@@ -68,5 +73,13 @@ public class Ingredientes {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public boolean isOculto() {
+        return oculto;
+    }
+
+    public void setOculto(boolean oculto) {
+        this.oculto = oculto;
     }
 }
