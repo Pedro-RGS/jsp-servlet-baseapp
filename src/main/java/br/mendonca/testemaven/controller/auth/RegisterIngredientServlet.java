@@ -24,19 +24,7 @@ public class RegisterIngredientServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            int page = 1; // Página padrão
-            String pageParam = request.getParameter("page");
-
-            // Verifica se a página foi especificada na requisição
-            if (pageParam != null) {
-                try {
-                    page = Integer.parseInt(pageParam);
-                } catch (NumberFormatException e) {
-                    page = 1; // Caso o valor seja inválido, volta para a página 1
-                }
-            }
-
-            // Obtém a lista de ingredientes com paginação
+            int page = getPageNumber(request);
             List<IngredientesDTO> lista = ingredientesService.listarIngredientesPaginado(page, ITEMS_PER_PAGE);
             int totalIngredientes = ingredientesService.contarIngredientes();
             int totalPages = (int) Math.ceil((double) totalIngredientes / ITEMS_PER_PAGE);
@@ -45,10 +33,23 @@ public class RegisterIngredientServlet extends HttpServlet {
             request.setAttribute("currentPage", page);
             request.setAttribute("totalPages", totalPages);
             request.getRequestDispatcher("/dashboard/list-ingredientes.jsp").forward(request, response);
-
         } catch (ClassNotFoundException | SQLException e) {
-            throw new RuntimeException(e);
+            request.setAttribute("errorMessage", "Erro ao carregar os ingredientes: " + e.getMessage());
+            request.getRequestDispatcher("/error.jsp").forward(request, response);
         }
+    }
+
+    private int getPageNumber(HttpServletRequest request) {
+        String pageParam = request.getParameter("page");
+        int page = 1; // Página padrão
+        try {
+            if (pageParam != null) {
+                page = Integer.parseInt(pageParam);
+            }
+        } catch (NumberFormatException e) {
+            page = 1;
+        }
+        return page;
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

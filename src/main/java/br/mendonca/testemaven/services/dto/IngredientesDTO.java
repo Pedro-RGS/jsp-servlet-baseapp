@@ -4,6 +4,7 @@ import br.mendonca.testemaven.model.entities.Ingredientes;
 
 public class IngredientesDTO {
 
+    private String id;
     private String nome;
     private String descricao;
     private String categoria;
@@ -11,9 +12,10 @@ public class IngredientesDTO {
     private int gramas;
     private int preco;
     private boolean disponivel;
+    private boolean oculto;
 
     // Construtor que aceita todos os parâmetros necessários
-    public IngredientesDTO(String nome, String descricao, String categoria, int quantidade, int gramas, int preco, boolean disponivel) {
+    public IngredientesDTO(String nome, String descricao, String categoria, int quantidade, int gramas, int preco, boolean disponivel, boolean oculto) {
         this.nome = nome;
         this.descricao = descricao;
         this.categoria = categoria;
@@ -21,9 +23,17 @@ public class IngredientesDTO {
         this.gramas = gramas;
         this.preco = preco;
         this.disponivel = disponivel;
+        this.oculto = oculto;
+    }
+
+    public IngredientesDTO(){
     }
 
     // Getters e Setters
+    public String getId(){
+        return id;
+    }
+
     public String getNome() {
         return nome;
     }
@@ -80,7 +90,15 @@ public class IngredientesDTO {
         this.disponivel = disponivel;
     }
 
-    public static IngredientesDTO userMapper(Ingredientes ingredientes) {
+    public boolean isOculto() {
+        return oculto;
+    }
+
+    public void setOculto(boolean oculto) {
+        this.oculto = oculto;
+    }
+
+    public static IngredientesDTO ingredientesMapper(Ingredientes ingredientes) {
         return new IngredientesDTO(
                 ingredientes.getNome(),
                 ingredientes.getDescricao(),
@@ -88,7 +106,8 @@ public class IngredientesDTO {
                 ingredientes.getQuantidade(),
                 ingredientes.getGramas(),
                 ingredientes.getPreco(),
-                ingredientes.isDisponivel()
+                ingredientes.isDisponivel(),
+                ingredientes.isOculto()
         );
     }
 }
