@@ -7,6 +7,7 @@ import java.util.List;
 
 import br.mendonca.testemaven.services.ChefService;
 import br.mendonca.testemaven.services.dto.ChefDTO;
+import br.mendonca.testemaven.services.dto.LivroDeReceitasDTO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -23,7 +24,13 @@ public class ListChefsServlet extends HttpServlet {
 
         try {
             ChefService service = new ChefService();
-            List<ChefDTO> lista = service.listAllChefs();
+
+            int pagina = 1;
+            if (request.getParameter("page") != null) {
+                pagina = Integer.parseInt(request.getParameter("page"));
+            }
+
+            List<ChefDTO> lista = service.listAllChefs(pagina);
 
             // Anexa � requisi��o um objeto ArrayList e despacha a requisi��o para uma JSP.
             request.setAttribute("lista", lista);

@@ -25,7 +25,13 @@ public class ListOcultsChefsServlet extends HttpServlet {
 
         try {
             ChefService service = new ChefService();
-            List<ChefDTO> lista = service.listAllChefsOcultos();
+
+            int pagina = 1;
+            if (request.getParameter("page") != null) {
+                pagina = Integer.parseInt(request.getParameter("page"));
+            }
+
+            List<ChefDTO> lista = service.listAllChefsOcultos(pagina);
 
             request.setAttribute("lista", lista);
             request.getRequestDispatcher("list-chefsOcultos.jsp").forward(request, response);
