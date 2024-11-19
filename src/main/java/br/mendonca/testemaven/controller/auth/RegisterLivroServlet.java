@@ -27,9 +27,9 @@ public class RegisterLivroServlet extends HttpServlet {
 
         try {
             // Obtém os parâmetros do formulário
-            String titulo = request.getParameter("titulo");
+            String titulo = request.getParameter("title");
             Integer paginas = Integer.valueOf(request.getParameter("paginas"));
-            Boolean ehBom = Boolean.valueOf(request.getParameter("ehBom"));
+            Boolean ehBom = Boolean.valueOf(request.getParameter("isGood"));
 
             // Cria a entidade e define seus atributos
             LivroDeReceitas livro = new LivroDeReceitas();

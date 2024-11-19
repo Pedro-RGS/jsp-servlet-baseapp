@@ -1,7 +1,7 @@
 package br.mendonca.testemaven.controller;
 
-import br.mendonca.testemaven.services.LivroService;
-import br.mendonca.testemaven.services.dto.LivroDeReceitasDTO;
+import br.mendonca.testemaven.services.IngredientesService;
+import br.mendonca.testemaven.services.dto.IngredientesDTO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -13,8 +13,8 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.List;
 
-@WebServlet("/dashboard/ocultos")
-public class ListOcultsLivrosServlet extends HttpServlet {
+@WebServlet("/ingredientes/ocultar")
+public class ListIngredientesOcultosServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -22,20 +22,11 @@ public class ListOcultsLivrosServlet extends HttpServlet {
         PrintWriter page = response.getWriter();
 
         try {
-
-            LivroService service = new LivroService();
-
-            int pagina = 1;
-            if (request.getParameter("page") != null) {
-                pagina = Integer.parseInt(request.getParameter("page"));
-            }
-
-            List<LivroDeReceitasDTO> lista = service.listLivrosOcultos(pagina);
+            IngredientesService ingredientesService = new IngredientesService();
+            List<IngredientesDTO> lista = ingredientesService.listarIngredientesOcultos();
 
             request.setAttribute("lista", lista);
-            request.setAttribute("currentPage", pagina);
-            request.setAttribute("lista", lista);
-            request.getRequestDispatcher("list-livrosOcultos.jsp").forward(request, response);
+            request.getRequestDispatcher("/webapp/ingredientes/list-ingredientesOcultos.jsp").forward(request, response);
         }
         catch (Exception e) {
             StringWriter sw = new StringWriter();
@@ -52,17 +43,16 @@ public class ListOcultsLivrosServlet extends HttpServlet {
         }
     }
 
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         PrintWriter page = response.getWriter();
 
+        String parametro = request.getParameter("uidIngrediente");
+
         try {
-            String parametro = request.getParameter("nomeparametro");
-
-            page.println("Parametro: " + parametro);
-            page.close();
-
+            IngredientesService service = new IngredientesService();
+            service.excluir(parametro);
+            response.sendRedirect(request.getContextPath() + "/ingredientes/register");
 
         } catch (Exception e) {
             StringWriter sw = new StringWriter();

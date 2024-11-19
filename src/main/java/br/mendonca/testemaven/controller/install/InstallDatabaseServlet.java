@@ -42,6 +42,7 @@ public class InstallDatabaseServlet extends HttpServlet {
 			service.createChefTable();
 			msg.append("<h2>Delete and Create table 'chef' successful!</h2>");
 
+			service.deleteIngredienteTable();
 			service.povoarChef();
 			msg.append("<h2>Povoar table chef sucessful!</h2>");
 
